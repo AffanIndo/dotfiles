@@ -1,0 +1,36 @@
+{
+	"bold_folder_labels": true,
+	"color_scheme": "Packages/Predawn/predawn.tmTheme",
+	"draw_white_space": "all",
+	"fade_fold_buttons": false,
+	"folder_exclude_patterns":
+	[
+		".svn",
+		".git",
+		".hg",
+		"CVS",
+		"_build",
+		"dist",
+		"build",
+		"site",
+		"__pycache__",
+		"_offline"
+	],
+	"font_face": "Ubuntu Mono",
+	"font_size": 15,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"line_padding_bottom": 1,
+	"line_padding_top": 1,
+	"preview_on_click": false,
+	"save_on_focus_lost": true,
+	"tab_size": 4,
+	"theme": "predawn.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"update_check": false,
+	"word_wrap": true
+}
