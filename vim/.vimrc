@@ -10,10 +10,6 @@
 "    -> LEADER
 "    -> MAP
 "    -> STATUS LINE
-"
-""""""""""""""""""""""
-""" BASIC INFO END
-""""""""""""""""""""""
 
 """""""""""""""
 """ GENERAL
@@ -67,10 +63,6 @@ set scrolloff=4
 " Encoding
 set encoding=utf-8
 
-""""""""""""""""""
-""" GENERAL END
-""""""""""""""""""
-
 """"""""""""""
 """ LEADER
 """"""""""""""
@@ -81,10 +73,6 @@ nnoremap <leader><space> :let @/=''<cr> " Clear search
 nnoremap <leader>q :q!<cr>
 nnoremap <leader>z :wq<cr> 
 nnoremap <leader>w :w<cr>
-
-""""""""""""""""""
-""" LEADER END
-""""""""""""""""""
 
 """""""""""
 """ MAP
@@ -104,10 +92,6 @@ vnoremap <left> <nop>
 vnoremap <right> <nop>
 inoremap <esc> <nop>
 
-"""""""""""""""
-""" MAP END
-"""""""""""""""
-
 """"""""""""""""""
 """ STATUS LINE
 """"""""""""""""""
@@ -117,8 +101,4 @@ set statusline+=%=        " switch to the right side
 set statusline+=%L        " total lines
 set statusline+=,         " comma separator
 set statusline+=%c        " column
-
-""""""""""""""""""""""
-""" STATUS LINE END
-""""""""""""""""""""""
 
