@@ -16,6 +16,12 @@ really-quiet=1
 # Keeps 4:3 content from scretching
 monitoraspect="16:9"
 
+# Position window. (50%:50%: center of screen)
+geometry=50%:50%
+
+# Resize the width but keeps the aspect ratio
+xy=1280
+
 #############
 ### AUDIO ###
 #############
@@ -83,5 +89,3 @@ subfont-outline=2.0
 # Set autoscale coefficient. (default: 5)
 subfont-text-scale=4.4
 
-# Position window. (50%:50%: center of screen)
-geometry=50%:50%
