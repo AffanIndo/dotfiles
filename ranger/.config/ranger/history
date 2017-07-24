@@ -1,1 +1,5 @@
 search nana
+shell vim .tmux.conf
+search col
+search .z
+search .zs

@@ -83,15 +83,20 @@ nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
+nnoremap Q <nop>
+
 inoremap <up> <nop>
 inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
+inoremap <esc> <nop>
+inoremap Q <nop>
+
 vnoremap <up> <nop>
 vnoremap <down> <nop>
 vnoremap <left> <nop>
 vnoremap <right> <nop>
-inoremap <esc> <nop>
+vnoremap Q <nop>
 
 """"""""""""""""""
 """ STATUS LINE
