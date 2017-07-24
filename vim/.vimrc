@@ -24,6 +24,7 @@ set nocompatible
 
 " Show line number
 set number
+set relativenumber
 
 " Show row and column ruler information
 set ruler
