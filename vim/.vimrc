@@ -15,6 +15,9 @@
 """ GENERAL
 """""""""""""""
 
+" Turn on syntax highlighting
+syntax on
+
 " Don't try to be vi compatible (must be first)
 set nocompatible
 
@@ -67,6 +70,10 @@ set scrolloff=4
 " Encoding
 set encoding=utf-8
 
+" Open new split panes to right and bottom
+set splitbelow
+set splitright
+
 " Lazy file name tab completion
 set wildmode=longest,list,full
 set wildmenu
@@ -98,24 +105,17 @@ nnoremap <leader>w :w<cr>
 """ MAP
 """""""""""
 
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-nnoremap Q <nop>
+noremap <up> <nop>
+noremap <down> <nop>
+noremap <left> <nop>
+noremap <right> <nop>
+noremap Q <nop>
 
 inoremap <up> <nop>
 inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
-inoremap <esc> <nop>
 inoremap Q <nop>
-
-vnoremap <up> <nop>
-vnoremap <down> <nop>
-vnoremap <left> <nop>
-vnoremap <right> <nop>
-vnoremap Q <nop>
 
 """"""""""""""""""
 """ STATUS LINE
@@ -126,4 +126,16 @@ set statusline+=%=        " switch to the right side
 set statusline+=%L        " total lines
 set statusline+=,         " comma separator
 set statusline+=%c        " column
+
+"""""""""""""""""""""
+""" CUSTOMIZATION
+"""""""""""""""""""""
+
+" Color
+" Custom colorscheme, comment if you want to use default
+" colorscheme COLORSCHEMENAME 
+" set cursorline
+" Default colorscheme, comment if you want to use custom
+colorscheme default
+set nocursorline
 
