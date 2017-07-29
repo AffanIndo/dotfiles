@@ -10,6 +10,8 @@
 "    -> LEADER
 "    -> MAP
 "    -> STATUS LINE
+"    -> NETRW
+"    -> CUSTOMIZATION
 
 """""""""""""""
 """ GENERAL
@@ -46,7 +48,7 @@ set smartindent
 set smarttab
 set softtabstop=4
 
-" the /g flag on :s substitutions by default
+" The /g flag on :s substitutions by default
 set gdefault
 
 " Search
@@ -64,7 +66,7 @@ set visualbell
 " Don't wrap files
 set nowrap
 
-" keep N lines off the edges of the screen when scrolling
+" Keep N lines off the edges of the screen when scrolling
 set scrolloff=4
 
 " Encoding
@@ -122,11 +124,55 @@ inoremap Q <nop>
 """ STATUS LINE
 """"""""""""""""""
 
-set statusline=%f         " path to the file
-set statusline+=%=        " switch to the right side
-set statusline+=%L        " total lines
-set statusline+=,         " comma separator
-set statusline+=%c        " column
+set statusline=%f         " Path to the file
+set statusline+=%=        " Switch to the right side
+set statusline+=%L        " Total lines
+set statusline+=,         " Comma separator
+set statusline+=%c        " Column
+
+"""""""""""""
+""" NETRW
+"""""""""""""
+
+" Remove top banner description
+let g:netrw_banner=0
+
+" Tree style file listing
+let g:netrw_liststyle=3
+
+" Set behavior how the files opened
+" 1 - open files in a new horizontal split
+" 2 - open files in a new vertical split
+" 3 - open files in a new tab
+" 4 - open in previous window
+let g:netrw_browse_split=4
+
+" Open new files in right window
+let g:netrw_altv=1
+set autochdir
+" Set the width of the netrw
+let g:netrw_winsize=15 " Sets to 25% width
+
+" Toggle
+function! ToggleVExplorer()
+  if exists("t:expl_buf_num")
+      let expl_win_num = bufwinnr(t:expl_buf_num)
+      if expl_win_num != -1
+          let cur_win_nr = winnr()
+          exec expl_win_num . 'wincmd w'
+          close
+          exec cur_win_nr . 'wincmd w'
+          unlet t:expl_buf_num
+      else
+          unlet t:expl_buf_num
+      endif
+  else
+      exec '1wincmd w'
+      Vexplore
+      let t:expl_buf_num = bufnr("%")
+  endif
+endfunction
+nnoremap <silent> <leader>f :call ToggleVExplorer()<CR>
 
 """""""""""""""""""""
 """ CUSTOMIZATION
