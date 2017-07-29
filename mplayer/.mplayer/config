@@ -1,3 +1,15 @@
+##################
+### BASIC INFO ###
+##################
+#
+# Maintainer: AffanIndo
+#
+# Sections:
+#    -> BASIC INFO
+#    -> VIDEO
+#    -> AUDIO
+#    -> SUBTITLE
+#
 # * = Experimental stuff
 
 #############
@@ -10,8 +22,8 @@ vo=xv
 # Use double-buffering. (Recommended for xv with SUB/OSD usage)
 double=yes
 
-# Console output
-really-quiet=1
+# Minimal console output
+# really-quiet=1
 
 # Keeps 4:3 content from scretching
 monitoraspect="16:9"

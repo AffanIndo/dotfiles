@@ -53,7 +53,7 @@ set gdefault
 set hlsearch " Highlight all search result
 set smartcase
 set ignorecase
-set incsearch " Searches for strings incrementally
+set incsearch " Searches for strings as you type
 
 " Highlight matching brace
 set showmatch
@@ -78,6 +78,7 @@ set splitright
 set wildmode=longest,list,full
 set wildmenu
 set wildignorecase
+
 " Ignore files vim doesnt use
 set wildignore+=.git,.hg,.svn
 set wildignore+=*.aux,*.out,*.toc
@@ -133,9 +134,9 @@ set statusline+=%c        " column
 
 " Color
 " Custom colorscheme, comment if you want to use default
-" colorscheme COLORSCHEMENAME 
-" set cursorline
+colorscheme Tomorrow-Night
+set cursorline
 " Default colorscheme, comment if you want to use custom
-colorscheme default
-set nocursorline
+" colorscheme default
+" set nocursorline
 

@@ -21,7 +21,7 @@ plugins=(git python colored-man-pages tmux)
 
 source $ZSH/oh-my-zsh.sh
 
-# Prevent weird window name in TMUX
+# Prevent weird window name in Tmux
 DISABLE_AUTO_TITLE=true
 
 # User configuration
@@ -43,3 +43,4 @@ DISABLE_AUTO_TITLE=true
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
+
