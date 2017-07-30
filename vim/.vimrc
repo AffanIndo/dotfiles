@@ -105,6 +105,9 @@ set wildignore+=*.doc,*.pdf,*.cbr,*.cbz
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz,*.kgb
 set wildignore+=*.swp,.lock,.DS_Store,._*
 
+" Display extra whitespace
+set list listchars=tab:»·,trail:·,nbsp:·
+
 """"""""""""""
 """ LEADER
 """"""""""""""
@@ -113,7 +116,7 @@ let mapleader=","
 
 nnoremap <leader><space> :let @/=''<cr> " Clear search
 nnoremap <leader>q :q!<cr>
-nnoremap <leader>z :wq<cr> 
+nnoremap <leader>z :wq<cr>
 nnoremap <leader>w :w<cr>
 
 set pastetoggle=<leader>p
