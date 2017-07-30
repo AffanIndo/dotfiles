@@ -17,15 +17,24 @@
 """ GENERAL
 """""""""""""""
 
-" Turn on syntax highlighting
-syntax on
-
 " Don't try to be vi compatible (must be first)
 set nocompatible
 
+" Turn on syntax highlighting
+syntax on
+
+" Make vim save swapfiles, backups, and undofiles in .vim
+set swapfile
+set backup
+set undofile
+set directory=~/.vim/tmp//,.
+set backupdir=~/.vim/tmp//,.
+set undodir=~/.vim/tmp//,.
+
+" Use this config if you don't want swapfiles and backups, at all.
 " Don't create backup
-set nobackup
-set noswapfile
+" set nobackup
+" set noswapfile
 
 " Show line number
 set number
@@ -72,7 +81,7 @@ set scrolloff=4
 " Encoding
 set encoding=utf-8
 
-" Open new split panes to right and bottom
+" Reverse the split behavior
 set splitbelow
 set splitright
 
@@ -80,6 +89,9 @@ set splitright
 set wildmode=longest,list,full
 set wildmenu
 set wildignorecase
+
+" Allow Vim to hide modified buffers without abandoning them
+set hidden
 
 " Ignore files vim doesnt use
 set wildignore+=.git,.hg,.svn
