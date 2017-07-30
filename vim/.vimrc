@@ -24,17 +24,17 @@ set nocompatible
 syntax on
 
 " Make vim save swapfiles, backups, and undofiles in .vim
-set swapfile
-set backup
-set undofile
-set directory=~/.vim/tmp//,.
-set backupdir=~/.vim/tmp//,.
-set undodir=~/.vim/tmp//,.
+" set swapfile
+" set backup
+" set undofile
+" set directory=~/.vim/tmp//,.
+" set backupdir=~/.vim/tmp//,.
+" set undodir=~/.vim/tmp//,.
 
 " Use this config if you don't want swapfiles and backups, at all.
 " Don't create backup
-" set nobackup
-" set noswapfile
+set nobackup
+set noswapfile
 
 " Show line number
 set number
@@ -116,6 +116,8 @@ nnoremap <leader>q :q!<cr>
 nnoremap <leader>z :wq<cr> 
 nnoremap <leader>w :w<cr>
 
+set pastetoggle=<leader>p
+
 """""""""""
 """ MAP
 """""""""""
@@ -125,6 +127,7 @@ noremap <down> <nop>
 noremap <left> <nop>
 noremap <right> <nop>
 noremap Q <nop>
+nnoremap ; :
 
 inoremap <up> <nop>
 inoremap <down> <nop>
