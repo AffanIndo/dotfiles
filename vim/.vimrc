@@ -90,7 +90,7 @@ set wildmode=longest,list,full
 set wildmenu
 set wildignorecase
 
-" Allow Vim to hide modified buffers without abandoning them
+" Allow vim to hide modified buffers without abandoning them
 set hidden
 
 " Ignore files vim doesnt use
@@ -124,6 +124,9 @@ set pastetoggle=<leader>p
 """""""""""
 """ MAP
 """""""""""
+
+" noremap -> map normal and visual
+" inoremap -> map insert
 
 noremap <up> <nop>
 noremap <down> <nop>
@@ -169,7 +172,7 @@ let g:netrw_browse_split=4
 let g:netrw_altv=1
 set autochdir
 " Set the width of the netrw
-let g:netrw_winsize=15 " Sets to 25% width
+let g:netrw_winsize=15 " Sets to 15% width
 
 " Toggle
 function! ToggleVExplorer()

@@ -22,3 +22,5 @@ alias mplayer_music='mplayer -playlist <(find "$PWD" -type f)'
 # Apps shorthand
 alias ydl='youtube-dl'
 
+# Easy clear screen
+alias cls='clear'
