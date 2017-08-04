@@ -1,3 +1,5 @@
 [user]
 	name = AffanIndo
 	email = AffanIndo@users.noreply.github.com
+[push]
+	default = simple
