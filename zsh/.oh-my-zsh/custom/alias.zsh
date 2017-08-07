@@ -24,3 +24,13 @@ alias ydl='youtube-dl'
 
 # Easy clear screen
 alias cls='clear'
+
+# NPM lists
+alias nll='npm list --depth=0'
+alias nlg='npm list -g --depth=0'
+
+# Alert for long command
+alias alert='notify-send 'Alert!' '''
+
+# Open android emulator
+alias emulator='~/Android/Sdk/tools/emulator -avd Nexus_S_API_22'
