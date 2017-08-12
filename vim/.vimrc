@@ -6,12 +6,68 @@
 "
 " Sections:
 "    -> BASIC INFO
-"    -> GENERAL
 "    -> LEADER
+"    -> PLUGIN
+"    -> GENERAL
 "    -> MAP
 "    -> STATUS LINE
 "    -> NETRW
-"    -> CUSTOMIZATION
+
+""""""""""""""
+""" LEADER
+""""""""""""""
+
+" You should set leader before loading all plugins
+
+let mapleader=","
+let g:mapleader=","
+
+nnoremap <leader><space> :let @/=''<cr> " Clear search
+nnoremap <leader>q :q!<cr>
+nnoremap <leader>z :wq<cr>
+nnoremap <leader>w :w<cr>
+
+" List all buffers
+nnoremap <leader>B :buffers!<cr>
+" Open a buffer
+nnoremap <leader>b :b 
+
+set pastetoggle=<leader>p
+
+""""""""""""""
+""" PLUGIN
+""""""""""""""
+
+" Activate pathogen
+call pathogen#infect()
+" Activate plugin's help file
+call pathogen#helptags()
+" Turn on syntax highlighting
+syntax on
+" Make sure plugin works
+filetype plugin indent on
+
+" Nerdtree
+" let g:NERDTreeWinPos = "right"
+let NERDTreeShowHidden=1
+let NERDTreeIgnore = ['\.pyc$', '__pycache__']
+let g:NERDTreeWinSize=30
+map <leader>nn :NERDTreeToggle<cr>
+map <leader>nb :NERDTreeFromBookmark<Space>
+map <leader>nf :NERDTreeFind<cr>
+
+" CtrlP
+let g:ctrlp_max_height = 20
+let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git'
+
+" Color
+" Custom colorscheme, comment if you want to use default
+colorscheme Tomorrow-Night
+set background=dark
+set cursorline
+" Default colorscheme, comment if you want to use custom
+" colorscheme default
+" set nocursorline
 
 """""""""""""""
 """ GENERAL
@@ -19,9 +75,6 @@
 
 " Don't try to be vi compatible (must be first)
 set nocompatible
-
-" Turn on syntax highlighting
-syntax on
 
 " Make vim save swapfiles, backups, and undofiles in .vim
 " set swapfile
@@ -69,13 +122,16 @@ set incsearch " Searches for strings as you type
 " Highlight matching brace
 set showmatch
 
-" Use visual bell (no beeping)
-set visualbell
+" No annoying sound on errors
+ set noerrorbells
+ set novisualbell
+ set t_vb=
+ set tm=500
 
 " Don't wrap files
 set nowrap
 
-" Keep N lines off the edges of the screen when scrolling
+" Keep n lines off the edges of the screen when scrolling
 set scrolloff=4
 
 " Encoding
@@ -93,6 +149,16 @@ set wildignorecase
 " Allow vim to hide modified buffers without abandoning them
 set hidden
 
+" Show status bar
+set laststatus=2
+
+" Show last line
+set showmode
+set showcmd
+
+" Add a bit extra margin to the left
+ "set foldcolumn=1
+
 " Ignore files vim doesnt use
 set wildignore+=.git,.hg,.svn
 set wildignore+=*.aux,*.out,*.toc
@@ -105,26 +171,14 @@ set wildignore+=*.doc,*.pdf,*.cbr,*.cbz
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz,*.kgb
 set wildignore+=*.swp,.lock,.DS_Store,._*
 
+" Don't redraw while executing macros (performance config)
+set lazyredraw
+
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
 
-""""""""""""""
-""" LEADER
-""""""""""""""
-
-let mapleader=","
-
-nnoremap <leader><space> :let @/=''<cr> " Clear search
-nnoremap <leader>q :q!<cr>
-nnoremap <leader>z :wq<cr>
-nnoremap <leader>w :w<cr>
-
-" List all buffers
-nnoremap <leader>B :buffers!<cr>
-" Open a buffer
-nnoremap <leader>b :b 
-
-set pastetoggle=<leader>p
+" Set how many history vim has to remember
+set history=1000
 
 """""""""""
 """ MAP
@@ -198,17 +252,5 @@ function! ToggleVExplorer()
       let t:expl_buf_num = bufnr("%")
   endif
 endfunction
-nnoremap <silent> <leader>f :call ToggleVExplorer()<CR>
-
-"""""""""""""""""""""
-""" CUSTOMIZATION
-"""""""""""""""""""""
-
-" Color
-" Custom colorscheme, comment if you want to use default
-colorscheme Tomorrow-Night
-set cursorline
-" Default colorscheme, comment if you want to use custom
-" colorscheme default
-" set nocursorline
+" nnoremap <silent> <leader>f :call ToggleVExplorer()<CR>
 
