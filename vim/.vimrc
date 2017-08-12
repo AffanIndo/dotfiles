@@ -119,6 +119,11 @@ nnoremap <leader>q :q!<cr>
 nnoremap <leader>z :wq<cr>
 nnoremap <leader>w :w<cr>
 
+" List all buffers
+nnoremap <leader>B :buffers!<cr>
+" Open a buffer
+nnoremap <leader>b :b 
+
 set pastetoggle=<leader>p
 
 """""""""""

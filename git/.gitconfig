@@ -3,3 +3,5 @@
 	email = AffanIndo@users.noreply.github.com
 [push]
 	default = simple
+[credential]
+	helper = cache --timeout=7200
