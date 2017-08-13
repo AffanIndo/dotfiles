@@ -22,6 +22,7 @@
 let mapleader=","
 let g:mapleader=","
 
+" General leader map
 nnoremap <leader><space> :let @/=''<cr> " Clear search
 nnoremap <leader>q :q!<cr>
 nnoremap <leader>z :wq<cr>
@@ -38,27 +39,10 @@ set pastetoggle=<leader>p
 """ PLUGIN
 """"""""""""""
 
-" Activate pathogen
-call pathogen#infect()
-" Activate plugin's help file
-call pathogen#helptags()
-" Turn on syntax highlighting
-syntax on
-" Make sure plugin works
-filetype plugin indent on
-
-" Nerdtree
-" let g:NERDTreeWinPos = "right"
-let NERDTreeShowHidden=1
-let NERDTreeIgnore = ['\.pyc$', '__pycache__']
-let g:NERDTreeWinSize=30
-map <leader>nn :NERDTreeToggle<cr>
-map <leader>nb :NERDTreeFromBookmark<Space>
-map <leader>nf :NERDTreeFind<cr>
-
-" CtrlP
-let g:ctrlp_max_height = 20
-let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git'
+" Source .vimrc_plugin if exist
+if filereadable(".vimrc_plugin")
+    source .vimrc_plugin
+endif
 
 " Color
 " Custom colorscheme, comment if you want to use default
@@ -83,9 +67,7 @@ set nocompatible
 " set directory=~/.vim/tmp//,.
 " set backupdir=~/.vim/tmp//,.
 " set undodir=~/.vim/tmp//,.
-
 " Use this config if you don't want swapfiles and backups, at all.
-" Don't create backup
 set nobackup
 set noswapfile
 
@@ -95,9 +77,6 @@ set relativenumber
 
 " Show row and column ruler information
 set ruler
-
-" Number of undo levels
-set undolevels=1000
 
 " Backspace
 set backspace=indent,eol,start
@@ -157,7 +136,7 @@ set showmode
 set showcmd
 
 " Add a bit extra margin to the left
- "set foldcolumn=1
+" set foldcolumn=1
 
 " Ignore files vim doesnt use
 set wildignore+=.git,.hg,.svn
@@ -177,6 +156,9 @@ set lazyredraw
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
 
+" Number of undo levels
+set undolevels=1000
+
 " Set how many history vim has to remember
 set history=1000
 
@@ -192,6 +174,7 @@ noremap <down> <nop>
 noremap <left> <nop>
 noremap <right> <nop>
 noremap Q <nop>
+
 nnoremap ; :
 
 inoremap <up> <nop>
@@ -204,7 +187,8 @@ inoremap Q <nop>
 """ STATUS LINE
 """"""""""""""""""
 
-set statusline=%f         " Path to the file
+" set statusline=%f         " File name
+set statusline=%F         " Path to the file
 set statusline+=%=        " Switch to the right side
 set statusline+=%L        " Total lines
 set statusline+=,         " Comma separator
