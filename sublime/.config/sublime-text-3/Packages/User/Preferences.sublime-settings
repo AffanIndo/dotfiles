@@ -30,6 +30,7 @@
 	"save_on_focus_lost": true,
 	"tab_size": 4,
 	"theme": "predawn.sublime-theme",
+	"predawn_tabs_active_underline": true,
 	"translate_tabs_to_spaces": true,
 	"update_check": false,
 	"word_wrap": true
