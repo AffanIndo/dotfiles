@@ -39,10 +39,27 @@ set pastetoggle=<leader>p
 """ PLUGIN
 """"""""""""""
 
-" Source .vimrc_plugin if exist
-if filereadable(".vimrc_plugin")
-    source .vimrc_plugin
-endif
+" Activate pathogen
+call pathogen#infect()
+" Activate plugin's help file
+call pathogen#helptags()
+" Turn on syntax highlighting
+syntax on
+" Make sure plugin works
+filetype plugin indent on
+
+" Nerdtree
+" let g:NERDTreeWinPos = "right"
+let NERDTreeShowHidden=1
+let NERDTreeIgnore = ['\.pyc$', '__pycache__']
+let g:NERDTreeWinSize=30
+map <leader>nn :NERDTreeToggle<cr>
+map <leader>nb :NERDTreeFromBookmark<Space>
+map <leader>nf :NERDTreeFind<cr>
+
+" CtrlP
+let g:ctrlp_max_height = 20
+let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git'
 
 " Color
 " Custom colorscheme, comment if you want to use default
