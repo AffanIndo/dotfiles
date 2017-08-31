@@ -38,28 +38,38 @@ set pastetoggle=<leader>p
 """"""""""""""
 """ PLUGIN
 """"""""""""""
+"
+" List of plugins:
+" 0. pathogen
+" 1. auto-pairs
+" 2. ctrlp
+" 3. nerdcommenter
+" 4. nerdtree
 
-" Activate pathogen
-call pathogen#infect()
-" Activate plugin's help file
-call pathogen#helptags()
-" Turn on syntax highlighting
+" Misc
 syntax on
-" Make sure plugin works
 filetype plugin indent on
+
+" Pathogen
+call pathogen#infect()
+call pathogen#helptags()
 
 " Nerdtree
 " let g:NERDTreeWinPos = "right"
 let NERDTreeShowHidden=1
-let NERDTreeIgnore = ['\.pyc$', '__pycache__']
+let NERDTreeIgnore = ['\.pyc$', '__pycache__', '\.git']
 let g:NERDTreeWinSize=30
 map <leader>nn :NERDTreeToggle<cr>
+map <leader>kb :NERDTreeToggle<cr> " Sublime text command
 map <leader>nb :NERDTreeFromBookmark<Space>
 map <leader>nf :NERDTreeFind<cr>
+let NERDTreeuitOnOpen = 1
 
 " CtrlP
-let g:ctrlp_max_height = 20
+let g:ctrlp_max_height = 50
 let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git'
+let g:ctrlp_working_path_mode = 'ar' " CtrlP scans through .git project
+let g:ctrlp_max_files = 0 " Set no max file limit
 
 " Color
 " Custom colorscheme, comment if you want to use default
@@ -179,10 +189,15 @@ set undolevels=1000
 " Set how many history vim has to remember
 set history=1000
 
+" Enable paste to system clipboard if has clipboard feature
+if has('clipboard')
+    set clipboard=unnamed
+endif
+
 """""""""""
 """ MAP
 """""""""""
-
+"
 " noremap -> map normal and visual
 " inoremap -> map insert
 
