@@ -16,7 +16,7 @@
 """"""""""""""
 """ LEADER
 """"""""""""""
-
+"
 " You should set leader before loading all plugins
 
 let mapleader=","
@@ -27,12 +27,18 @@ nnoremap <leader><space> :let @/=''<cr> " Clear search
 nnoremap <leader>q :q!<cr>
 nnoremap <leader>z :wq<cr>
 nnoremap <leader>w :w<cr>
+nnoremap <leader>v <c-w>v<c-w>l " Split then move to the split
+nnoremap <C-h> <C-w>h " Fast moving
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 " List all buffers
 nnoremap <leader>B :buffers!<cr>
 " Open a buffer
 nnoremap <leader>b :b 
 
+" Toggle paste mode when you want to paste from outside source
 set pastetoggle=<leader>p
 
 """"""""""""""
@@ -64,6 +70,9 @@ map <leader>kb :NERDTreeToggle<cr> " Sublime text command
 map <leader>nb :NERDTreeFromBookmark<Space>
 map <leader>nf :NERDTreeFind<cr>
 let NERDTreeuitOnOpen = 1
+
+" Nerdcommenter
+let NERDSpaceDelims=1
 
 " CtrlP
 let g:ctrlp_max_height = 50
@@ -199,6 +208,7 @@ endif
 """""""""""
 "
 " noremap -> map normal and visual
+" nnoremap -> map normal
 " inoremap -> map insert
 
 noremap <up> <nop>
@@ -223,8 +233,8 @@ inoremap Q <nop>
 set statusline=%F         " Path to the file
 set statusline+=%=        " Switch to the right side
 set statusline+=%L        " Total lines
-set statusline+=,         " Comma separator
-set statusline+=%c        " Column
+" set statusline+=,         " Comma separator
+" set statusline+=%c        " Column
 
 """""""""""""
 """ NETRW
