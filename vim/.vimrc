@@ -83,7 +83,6 @@ let g:ctrlp_max_files = 0 " Set no max file limit
 " Color
 " Custom colorscheme, comment if you want to use default
 colorscheme Tomorrow-Night
-set background=dark
 set cursorline
 " Default colorscheme, comment if you want to use custom
 " colorscheme default
