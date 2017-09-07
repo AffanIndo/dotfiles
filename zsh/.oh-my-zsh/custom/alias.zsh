@@ -21,6 +21,8 @@ alias mplayer_music='mplayer -playlist <(find "$PWD" -type f)'
 
 # Apps shorthand
 alias ydl='youtube-dl'
+alias py='python3'
+alias doctest='python3 -m doctest -v'
 
 # Easy clear screen
 alias cls='clear'
@@ -34,3 +36,4 @@ alias alert='notify-send 'Alert!' '''
 
 # Open android emulator
 alias emulator='~/Android/Sdk/tools/emulator -avd Nexus_S_API_22'
+
