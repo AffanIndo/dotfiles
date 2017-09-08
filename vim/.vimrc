@@ -36,7 +36,7 @@ nnoremap <C-l> <C-w>l
 " List all buffers
 nnoremap <leader>B :buffers!<cr>
 " Open a buffer
-nnoremap <leader>b :b 
+nnoremap <leader>b :b<space>
 
 " Toggle paste mode when you want to paste from outside source
 set pastetoggle=<leader>p
