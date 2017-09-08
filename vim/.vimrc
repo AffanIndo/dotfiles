@@ -79,6 +79,7 @@ let g:ctrlp_max_height = 50
 let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git'
 let g:ctrlp_working_path_mode = 'ar' " CtrlP scans through .git project
 let g:ctrlp_max_files = 0 " Set no max file limit
+let g:ctrlp_show_hidden = 1
 
 " Color
 " Custom colorscheme, comment if you want to use default
@@ -230,8 +231,8 @@ inoremap Q <nop>
 
 " set statusline=%f         " File name
 set statusline=%F         " Path to the file
-set statusline+=%=        " Switch to the right side
-set statusline+=%L        " Total lines
+" set statusline+=%=        " Switch to the right side
+" set statusline+=%L        " Total lines
 " set statusline+=,         " Comma separator
 " set statusline+=%c        " Column
 

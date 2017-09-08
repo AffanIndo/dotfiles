@@ -21,7 +21,7 @@ plugins=(git python colored-man-pages tmux)
 
 source $ZSH/oh-my-zsh.sh
 
-# Prevent weird window name in Tmux
+# Prevent weird window name in tmux
 DISABLE_AUTO_TITLE=true
 
 # User configuration
