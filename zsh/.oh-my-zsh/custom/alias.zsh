@@ -4,6 +4,10 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
+# Fast cd
+alias cdgit='cd ~/Programming/git'
+alias cddot='cd ~/dotfiles'
+
 # Git stuff
 alias ga='git add'
 alias gc='git commit -m'
