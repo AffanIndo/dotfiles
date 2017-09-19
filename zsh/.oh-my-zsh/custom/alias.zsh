@@ -24,9 +24,10 @@ alias gco='git checkout'
 alias mplayer_music='mplayer -playlist <(find "$PWD" -type f)'
 
 # Apps shorthand
-alias ydl='youtube-dl'
+alias yd='youtube-dl'
 alias py='python3'
 alias doctest='python3 -m doctest -v'
+alias h='history'
 
 # Easy clear screen
 alias cls='clear'
