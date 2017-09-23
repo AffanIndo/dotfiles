@@ -2,8 +2,8 @@
 This is my Linux setup. Every folder except "windows/" is managed using GNU Stow.
 
 ## How To Install
-* Clone this repo directly in your home folder.
-* Make sure you have GNU Stow
+* Clone this repo directly to your home folder.
+* Install GNU Stow
 * Delete/rename/move the real dotfile you want to install
 * `cd` to this repo
 * Run command `stow <folder>`

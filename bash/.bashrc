@@ -116,7 +116,3 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Local customized path and environment settings, etc.
-if [ -f ~/.bash_local ]; then
-    . ~/.bash_local
-fi

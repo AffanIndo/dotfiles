@@ -165,7 +165,8 @@ set wildignorecase
 set hidden
 
 " Show status bar
-set laststatus=2
+" set laststatus=2 " Always show
+set laststatus=0 " Always hidden
 
 " Show last line
 set showmode
@@ -229,7 +230,7 @@ inoremap <right> <nop>
 """"""""""""""""""
 
 " set statusline=%f         " File name
-set statusline=%F         " Path to the file
+" set statusline=%F         " Path to the file
 " set statusline+=%=        " Switch to the right side
 " set statusline+=%L        " Total lines
 " set statusline+=,         " Comma separator
