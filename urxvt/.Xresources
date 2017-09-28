@@ -1,7 +1,64 @@
+!!!!!!!!!!!!!!!!!!
+!!! BASIC INFO !!!
+!!!!!!!!!!!!!!!!!!
+!
+! Maintainer: AffanIndo
+!
+! Inspired by: http://dotshare.it/dots/1011/
+!
+! Sections:
+!    -> FONT
+!    -> SCROLLBAR AND CURSOR
+!    -> TABS
+!    -> COLOR
+!    -> MISC
 
-!!!!!!!!!!!!!!!!!!!!
-!!! URXVT COLORS !!!
-!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!
+!!! FONT !!!
+!!!!!!!!!!!!
+
+! Font selection
+URxvt.font:xft:Ubuntu Mono:pixelsize=16
+URxvt.boldFont:xft:Ubuntu Mono:bold:pixelsize=16
+URxvt.italicfont:xft:Ubuntu Mono:italic:pixelsize=16
+URxvt.bolditalicFont:xft:Ubuntu Mono:bold:italic:pixelsize=16
+URxvt*letterSpace: 1
+URxvt*allow_bold: true
+
+! Font configuration
+Xft.autohint: true
+Xft.antialias: true
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.rgba: rgb
+Xft.lcdfilter: lcddefault
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! SCROLLBAR AND CURSOR !!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+URxvt*saveLines: 300000
+URxvt.scrollBar: false
+!URxvt*scrollstyle: plain
+URxvt*cursorBlink: true
+URxvt*cursorUnderline: false
+
+!!!!!!!!!!!!
+!!! TABS !!!
+!!!!!!!!!!!!
+
+URxvt.tabbedex.autohide: yes
+URxvt.tabbedex.tabbar-fg: 2
+URxvt.tabbedex.tabbar-bg: 0
+URxvt.tabbedex.tab-fg: 10
+URxvt.tabbedex.tab-bg: 0
+URxvt.tabbedex.title: yes
+URxvt.tabbedex.new-button: no
+
+
+!!!!!!!!!!!!!
+!!! COLOR !!!
+!!!!!!!!!!!!!
 
 ! special
 *.foreground: #93a1a1
@@ -39,3 +96,17 @@
 ! white
 *.color7: #989898
 *.color15: #c5c5c5
+
+!!!!!!!!!!!!
+!!! MISC !!!
+!!!!!!!!!!!!
+
+! Window size
+URxvt.geometry: 80x22
+
+! Disable picture insert mode
+URxvt.iso14755: False
+
+! Disable bell
+URxvt.insecure: false
+

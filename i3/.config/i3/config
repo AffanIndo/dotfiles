@@ -4,13 +4,15 @@
 #
 # Maintainer: AffanIndo
 #
+# Inspired by: http://dotshare.it/dots/1011/
+#
 # Sections:
-#    ->
-#    ->
-#    ->
-#    ->
-#    ->
-#    ->
+#    -> MY CONFIG
+#    -> COLOR
+#    -> EXEC
+#    -> MOD
+#    -> GAPS
+#    -> MISC
 
 #################
 ### MY CONFIG ###
@@ -45,7 +47,8 @@ client.background       $UNFOCUS
 set $exe exec --no-startup-id
 
 # Start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec urxvt
+# bindsym $mod+Return exec i3-sensible-terminal
 
 # Take screenshot
 bindsym $mod+F12 $exe import -window root ~/Pictures/Screenshot.png
@@ -66,8 +69,8 @@ bindsym $mod+l $exe i3lock -i $bg -g
 # bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # Mute sound
 
 # Sreen brightness controls
-# bindsym XF86MonBrightnessUp exec light -A 15 && notify-send `light` # Increase screen brightness
-# bindsym XF86MonBrightnessDown exec light -U 15 && notify-send `light` # Decrease screen brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # Increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # Decrease screen brightness
 
 ###########
 ### MOD ###
@@ -214,8 +217,11 @@ bar {
         position top
         status_command i3status
         colors {
-            background #444444
-            statusline #ffff00
-            separator  #cccccc
+            background #3c3b37
+            statusline #42c6ff
+            separator  #333333
+            # Class            border  fill    text
+            focused_workspace  #3c3b37 #42c6ff #3c3b37
+            inactive_workspace #3c3b37 #3c3b37 #9e6ba6
         }
 }
