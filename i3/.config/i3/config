@@ -23,6 +23,20 @@ set $bg ~/Pictures/Wallpaper/Flat\ -\ Touhou.png
 font pango:monospace 10
 #font pango:DejaVu Sans Mono 8
 
+#############
+### COLOR ###
+#############
+
+set $FOCUS   #989898
+set $UNFOCUS #3c3b37
+
+# Class                 border   background text     indicator
+client.focused          $FOCUS   $FOCUS     $FOCUS   $FOCUS
+client.focused_inactive $UNFOCUS $UNFOCUS   $UNFOCUS $UNFOCUS
+client.unfocused        $UNFOCUS $UNFOCUS   $UNFOCUS $UNFOCUS
+client.urgent           $FOCUS   $FOCUS     $FOCUS   $FOCUS
+client.background       $UNFOCUS
+
 ############
 ### EXEC ###
 ############
@@ -41,10 +55,19 @@ bindsym $mod+F12 $exe import -window root ~/Pictures/Screenshot.png
 bindsym $mod+d exec dmenu_run
 
 # Set background
-$exe feh --bg-center $bg
+$exe feh --bg-fill $bg
 
 # Set lockscreen
 bindsym $mod+l $exe i3lock -i $bg -g
+
+# Pulse Audio controls
+# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% # Increase sound volume
+# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% # Decrease sound volume
+# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # Mute sound
+
+# Sreen brightness controls
+# bindsym XF86MonBrightnessUp exec light -A 15 && notify-send `light` # Increase screen brightness
+# bindsym XF86MonBrightnessDown exec light -U 15 && notify-send `light` # Decrease screen brightness
 
 ###########
 ### MOD ###
@@ -57,7 +80,7 @@ set $mod Mod4
 floating_modifier $mod
 
 # Kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # Change focus
 # bindsym $mod+j focus left
@@ -171,41 +194,19 @@ bindsym $mod+r mode "resize"
 ### GAPS ###
 ############
 
-gaps inner 10
-gaps outer 10
+gaps inner 12
+gaps outer 0
 smart_gaps on
 smart_borders on
 for_window [class="^.*"] border pixel 5
 for_window [floating] border normal
 
-#############
-### COLOR ###
-#############
-
-set $border  #e74c3c
-set $border2 #7f8c8d
-set $back    #888888
-set $red     #900000
-set $white   #ffffff
-
-# Class                 border  background text    indicator border_fill
-client.focused          $border $back      $white  $border   $border
-client.unfocused        $border $back      $back   $back     $border2
-client.focused_inactive $border $back      $back   $back     $border
-client.urgent           $border $back      $white  $back     $border
-
 ############
 ### MISC ###
 ############
 
-# Pulse Audio controls
-# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% # Increase sound volume
-# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% # Decrease sound volume
-# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # Mute sound
-
-# Sreen brightness controls
-# bindsym XF86MonBrightnessUp exec light -A 15 && notify-send `light` # Increase screen brightness
-# bindsym XF86MonBrightnessDown exec light -U 15 && notify-send `light` # Decrease screen brightness
+# Floating windows
+# for_window [class="Gimp"] floating enable
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
