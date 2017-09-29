@@ -21,7 +21,7 @@ alias gu='git unstage'
 alias gco='git checkout'
 
 # Mplayer play all music recursively
-alias mplayer_music='mplayer -playlist <(find "$PWD" -type f)'
+alias music='mplayer -playlist <(find "$PWD" -type f)'
 
 # Apps shorthand
 alias yd='youtube-dl'

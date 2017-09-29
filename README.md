@@ -1,5 +1,5 @@
 # dotfiles
-This is my Linux setup. Every folder except "windows/" is managed using GNU Stow.
+This is my Linux setup. Every folder except "windows" is managed using GNU Stow.
 
 ## How To Install
 * Clone this repo directly to your home folder.
