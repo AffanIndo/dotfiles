@@ -19,7 +19,7 @@
 #################
 
 # Set background (used with feh)
-set $bg ~/Pictures/Wallpaper/Flat\ -\ Touhou.png
+# set $bg ~/Pictures/Wallpaper/Normal\ -\ Bill\ Gates.jpg
 
 # Font for window titles. Will also be used by the bar unless a different font is used in the bar {} block below.
 font pango:monospace 10
@@ -63,21 +63,16 @@ $exe feh --bg-fill $bg
 # Set lockscreen
 bindsym $mod+l $exe i3lock -i $bg -g
 
-# Pulse Audio controls
-# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% # Increase sound volume
-# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% # Decrease sound volume
-# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # Mute sound
-
-# Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # Increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # Decrease screen brightness
-
 ###########
 ### MOD ###
 ###########
 
 # Set windows button as modifier key
 set $mod Mod4
+
+# Change workspace
+bindsym $mod+n workspace next
+bindsym $mod+shift+n workspace prev
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -197,11 +192,11 @@ bindsym $mod+r mode "resize"
 ### GAPS ###
 ############
 
-gaps inner 12
+gaps inner 0
 gaps outer 0
 smart_gaps on
 smart_borders on
-for_window [class="^.*"] border pixel 5
+for_window [class="^.*"] border pixel 3
 for_window [floating] border normal
 
 ############
@@ -217,11 +212,11 @@ bar {
         position top
         status_command i3status
         colors {
-            background #3c3b37
+            background $UNFOCUS
             statusline #42c6ff
-            separator  #333333
-            # Class            border  fill    text
-            focused_workspace  #3c3b37 #42c6ff #3c3b37
-            inactive_workspace #3c3b37 #3c3b37 #9e6ba6
+            separator  $UNFOCUS
+            # Class            border   fill     text
+            focused_workspace  $UNFOCUS #42c6ff  $UNFOCUS
+            inactive_workspace $UNFOCUS $UNFOCUS #42c6ff
         }
 }

@@ -47,3 +47,5 @@ DISABLE_AUTO_TITLE=true
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
+# Prepend command with space will not save it to the history
+setopt histignorespace

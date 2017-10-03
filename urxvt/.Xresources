@@ -110,3 +110,5 @@ URxvt.iso14755: False
 ! Disable bell
 URxvt.insecure: false
 
+! Change icon
+URxvt.iconfile: /usr/share/icons/Numix-Circle/48/apps/terminal.svg

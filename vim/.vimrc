@@ -28,10 +28,8 @@ nnoremap <leader>q :q!<cr>
 nnoremap <leader>z :wq<cr>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>v <c-w>v<c-w>l " Split then move to the split
-nnoremap <C-h> <C-w>h " Fast moving
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+nnoremap <leader>n :bnext<cr>
+nnoremap <leader>N :bprev<cr>
 
 " List all buffers
 nnoremap <leader>B :buffers!<cr>
@@ -60,26 +58,28 @@ filetype plugin indent on
 call pathogen#infect()
 call pathogen#helptags()
 
-" Nerdtree
-" let g:NERDTreeWinPos = "right"
-let NERDTreeShowHidden=1
-let NERDTreeIgnore = ['\.pyc$', '__pycache__', '\.git']
-let g:NERDTreeWinSize=30
-map <leader>nn :NERDTreeToggle<cr>
-map <leader>kb :NERDTreeToggle<cr> " Sublime text command
-map <leader>nb :NERDTreeFromBookmark<Space>
-map <leader>nf :NERDTreeFind<cr>
-let NERDTreeuitOnOpen = 1
-
-" Nerdcommenter
-let NERDSpaceDelims=1
-
 " CtrlP
 let g:ctrlp_max_height = 50
 let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git'
 let g:ctrlp_working_path_mode = 'ar' " CtrlP scans through .git project
 let g:ctrlp_max_files = 0 " Set no max file limit
 let g:ctrlp_show_hidden = 1
+
+" Nerdcommenter
+let NERDSpaceDelims=1
+
+" Nerdtree
+let NERDTreeShowHidden=1
+let NERDTreeIgnore = ['\.pyc$', '__pycache__', '\.git']
+let g:NERDTreeWinSize=30
+map <leader>f :NERDTreeToggle<cr>
+map <leader>kb :NERDTreeToggle<cr> " Sublime text command
+" map <leader>nn :NERDTreeToggle<cr>
+" map <leader>nb :NERDTreeFromBookmark<Space>
+" map <leader>nf :NERDTreeFind<cr>
+let NERDTreeQuitOnOpen = 1
+let NERDTreeMinimalUI=1
+" let g:NERDTreeWinPos = "right"
 
 " Color
 " Custom colorscheme, comment if you want to use default
@@ -208,7 +208,7 @@ endif
 """ MAP
 """""""""""
 "
-" noremap -> map normal and visual
+" noremap  -> map normal and visual
 " nnoremap -> map normal
 " inoremap -> map insert
 
@@ -217,6 +217,10 @@ noremap <down> <nop>
 noremap <left> <nop>
 noremap <right> <nop>
 noremap Q <nop>
+nnoremap <C-h> <C-w>h " Fast moving
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 nnoremap ; :
 
@@ -240,43 +244,43 @@ inoremap <right> <nop>
 """ NETRW
 """""""""""""
 
-" Remove top banner description
-let g:netrw_banner=0
+" " Remove top banner description
+" let g:netrw_banner=0
 
-" Tree style file listing
-let g:netrw_liststyle=3
+" " Tree style file listing
+" let g:netrw_liststyle=3
 
-" Set behavior how the files opened
-" 1 - open files in a new horizontal split
-" 2 - open files in a new vertical split
-" 3 - open files in a new tab
-" 4 - open in previous window
-let g:netrw_browse_split=4
+" " Set behavior how the files opened
+" " 1 - open files in a new horizontal split
+" " 2 - open files in a new vertical split
+" " 3 - open files in a new tab
+" " 4 - open in previous window
+" let g:netrw_browse_split=4
 
-" Open new files in right window
-let g:netrw_altv=1
-set autochdir
-" Set the width of the netrw
-let g:netrw_winsize=15 " Sets to 15% width
+" " Open new files in right window
+" let g:netrw_altv=1
+" set autochdir
+" " Set the width of the netrw
+" let g:netrw_winsize=15 " Sets to 15% width
 
-" Toggle
-function! ToggleVExplorer()
-  if exists("t:expl_buf_num")
-      let expl_win_num = bufwinnr(t:expl_buf_num)
-      if expl_win_num != -1
-          let cur_win_nr = winnr()
-          exec expl_win_num . 'wincmd w'
-          close
-          exec cur_win_nr . 'wincmd w'
-          unlet t:expl_buf_num
-      else
-          unlet t:expl_buf_num
-      endif
-  else
-      exec '1wincmd w'
-      Vexplore
-      let t:expl_buf_num = bufnr("%")
-  endif
-endfunction
+" " Toggle
+" function! ToggleVExplorer()
+  " if exists("t:expl_buf_num")
+      " let expl_win_num = bufwinnr(t:expl_buf_num)
+      " if expl_win_num != -1
+          " let cur_win_nr = winnr()
+          " exec expl_win_num . 'wincmd w'
+          " close
+          " exec cur_win_nr . 'wincmd w'
+          " unlet t:expl_buf_num
+      " else
+          " unlet t:expl_buf_num
+      " endif
+  " else
+      " exec '1wincmd w'
+      " Vexplore
+      " let t:expl_buf_num = bufnr("%")
+  " endif
+" endfunction
 " nnoremap <silent> <leader>f :call ToggleVExplorer()<CR>
-
+ 
