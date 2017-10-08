@@ -30,6 +30,7 @@ nnoremap <leader>w :w<cr>
 nnoremap <leader>v <c-w>v<c-w>l " Split then move to the split
 nnoremap <leader>n :bnext<cr>
 nnoremap <leader>N :bprev<cr>
+nnoremap <leader>r :source ~/.vimrc<cr>
 
 " List all buffers
 nnoremap <leader>B :buffers!<cr>

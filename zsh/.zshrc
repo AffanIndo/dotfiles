@@ -49,3 +49,4 @@ DISABLE_AUTO_TITLE=true
 
 # Prepend command with space will not save it to the history
 setopt histignorespace
+

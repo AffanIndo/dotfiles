@@ -21,3 +21,5 @@ extract () {
 }
 
 function crun { make $1 && ./$1; }
+
+mkcd () { NAME=$1; mkdir -p "$NAME"; cd "$NAME"; }
