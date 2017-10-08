@@ -63,6 +63,10 @@ $exe feh --bg-fill $bg
 # Set lockscreen
 bindsym $mod+l $exe i3lock -i $bg -g
 
+# Set volume buttons
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
+
 ###########
 ### MOD ###
 ###########
