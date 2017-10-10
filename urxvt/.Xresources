@@ -18,10 +18,10 @@
 !!!!!!!!!!!!
 
 ! Font selection
-URxvt.font:xft:DeJavu Sans Mono:pixelsize=16
-URxvt.boldFont:xft:DeJavu Sans Mono:bold:pixelsize=16
-URxvt.italicfont:xft:DeJavu Sans Mono:italic:pixelsize=16
-URxvt.bolditalicFont:xft:DeJavu Sans Mono:bold:italic:pixelsize=16
+URxvt.font:xft:DeJavu Sans Mono:pixelsize=15
+URxvt.boldFont:xft:DeJavu Sans Mono:bold:pixelsize=15
+URxvt.italicfont:xft:DeJavu Sans Mono:italic:pixelsize=15
+URxvt.bolditalicFont:xft:DeJavu Sans Mono:bold:italic:pixelsize=15
 URxvt*letterSpace: -1
 URxvt*allow_bold: true
 
