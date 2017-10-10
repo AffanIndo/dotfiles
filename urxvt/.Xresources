@@ -18,11 +18,11 @@
 !!!!!!!!!!!!
 
 ! Font selection
-URxvt.font:xft:Ubuntu Mono:pixelsize=16
-URxvt.boldFont:xft:Ubuntu Mono:bold:pixelsize=16
-URxvt.italicfont:xft:Ubuntu Mono:italic:pixelsize=16
-URxvt.bolditalicFont:xft:Ubuntu Mono:bold:italic:pixelsize=16
-URxvt*letterSpace: 1
+URxvt.font:xft:DeJavu Sans Mono:pixelsize=16
+URxvt.boldFont:xft:DeJavu Sans Mono:bold:pixelsize=16
+URxvt.italicfont:xft:DeJavu Sans Mono:italic:pixelsize=16
+URxvt.bolditalicFont:xft:DeJavu Sans Mono:bold:italic:pixelsize=16
+URxvt*letterSpace: -1
 URxvt*allow_bold: true
 
 ! Font configuration
