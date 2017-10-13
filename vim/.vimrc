@@ -8,6 +8,7 @@
 "    -> BASIC INFO
 "    -> LEADER
 "    -> PLUGIN
+"    -> COLOR
 "    -> GENERAL
 "    -> MAP
 "    -> STATUS LINE
@@ -88,6 +89,16 @@ let NERDTreeMinimalUI=1
 let g:lightline = {
     \ 'colorscheme': 'nord',
     \ }
+
+"""""""""""""
+""" COLOR
+"""""""""""""
+
+" Monkeypatch for nord low contrast comment
+augroup nord-overrides
+  autocmd!
+    autocmd ColorScheme nord highlight Comment ctermfg=103
+augroup END
 
 " Color
 " Custom colorscheme, comment if you want to use default
