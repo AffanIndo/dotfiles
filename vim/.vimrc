@@ -33,9 +33,10 @@ nnoremap <leader>N :bprev<cr>
 nnoremap <leader>r :source ~/.vimrc<cr>
 
 " List all buffers
-nnoremap <leader>B :buffers!<cr>
+" nnoremap <leader>B :buffers!<cr>
 " Open a buffer
-nnoremap <leader>b :b<space>
+" nnoremap <leader>b :b<space>
+nnoremap <leader>b :CtrlPBuffer<cr>
 
 " Toggle paste mode when you want to paste from outside source
 set pastetoggle=<leader>p
@@ -50,6 +51,7 @@ set pastetoggle=<leader>p
 " 2. ctrlp
 " 3. nerdcommenter
 " 4. nerdtree
+" 5. lightline
 
 " Misc
 syntax on
@@ -82,9 +84,14 @@ let NERDTreeQuitOnOpen = 1
 let NERDTreeMinimalUI=1
 " let g:NERDTreeWinPos = "right"
 
+" Lightline
+let g:lightline = {
+    \ 'colorscheme': 'nord',
+    \ }
+
 " Color
 " Custom colorscheme, comment if you want to use default
-colorscheme Tomorrow-Night
+colorscheme nord
 set cursorline
 " Default colorscheme, comment if you want to use custom
 " colorscheme default
@@ -165,13 +172,14 @@ set wildignorecase
 " Allow vim to hide modified buffers without abandoning them
 set hidden
 
-" Show status bar
-" set laststatus=2 " Always show
-set laststatus=0 " Always hidden
-
 " Show last line
-set showmode
+" set showmode
+set noshowmode
 set showcmd
+
+" Show status bar
+set laststatus=2 " Always show
+" set laststatus=0 " Always hidden
 
 " Add a bit extra margin to the left
 " set foldcolumn=1
