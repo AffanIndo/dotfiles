@@ -71,6 +71,8 @@ set pastetoggle=<leader>p
 " 5. lightline
 " 6. surround
 " 7. repeat
+" 8. emmet
+" 9. fugitive
 
 " Pathogen
 call pathogen#infect()
@@ -104,6 +106,9 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 let g:lightline = {
     \ 'colorscheme': 'nord',
     \ }
+
+" Emmet-vim
+let g:user_emmet_leader_key='<leader>z' " <leader>z<comma> to activate.
 
 """""""""""""
 """ COLOR
