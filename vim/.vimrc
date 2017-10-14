@@ -13,7 +13,7 @@
 "    -> MAP
 "    -> STATUS LINE
 "    -> NETRW
-
+"    -> MISC
 
 """""""""""""""""""""""""
 """ FIRST THING FIRST
@@ -73,6 +73,7 @@ set pastetoggle=<leader>p
 " 7. repeat
 " 8. emmet
 " 9. fugitive
+" 10. supertab
 
 " Pathogen
 call pathogen#infect()
@@ -195,7 +196,6 @@ set wildignorecase
 set hidden
 
 " Show last line
-" set showmode
 set noshowmode
 set showcmd
 
@@ -204,18 +204,6 @@ set laststatus=2 " Always show
 
 " Add a bit extra margin to the left beside line number
 set foldcolumn=1
-
-" Ignore files vim doesnt use
-set wildignore+=.git,.hg,.svn
-set wildignore+=*.aux,*.out,*.toc
-set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest,*.rbc,*.class
-set wildignore+=*.ai,*.bmp,*.gif,*.ico,*.jpg,*.jpeg,*.png,*.psd,*.webp
-set wildignore+=*.avi,*.divx,*.mp4,*.webm,*.mov,*.m2ts,*.mkv,*.vob,*.mpg,*.mpeg
-set wildignore+=*.mp3,*.oga,*.ogg,*.wav,*.flac
-set wildignore+=*.eot,*.otf,*.ttf,*.woff
-set wildignore+=*.doc,*.pdf,*.cbr,*.cbz
-set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz,*.kgb
-set wildignore+=*.swp,.lock,.DS_Store,._*
 
 " Don't redraw while executing macros (performance config)
 set lazyredraw
@@ -316,4 +304,25 @@ inoremap <right> <nop>
   " endif
 " endfunction
 " nnoremap <silent> <leader>f :call ToggleVExplorer()<CR>
- 
+
+""""""""""""
+""" MISC
+""""""""""""
+
+" Ignore files vim doesnt use
+set wildignore+=.git,.hg,.svn
+set wildignore+=*.aux,*.out,*.toc
+set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest,*.rbc,*.class
+set wildignore+=*.ai,*.bmp,*.gif,*.ico,*.jpg,*.jpeg,*.png,*.psd,*.webp
+set wildignore+=*.avi,*.divx,*.mp4,*.webm,*.mov,*.m2ts,*.mkv,*.vob,*.mpg,*.mpeg
+set wildignore+=*.mp3,*.oga,*.ogg,*.wav,*.flac
+set wildignore+=*.eot,*.otf,*.ttf,*.woff
+set wildignore+=*.doc,*.pdf,*.cbr,*.cbz
+set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz,*.kgb
+set wildignore+=*.swp,.lock,.DS_Store,._*
+
+" Autopairs add * if filetype is markdown
+autocmd BufNewFile,BufRead *.md let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '*':'*'}
+" <leader>* will insert multi-line 
+autocmd BufNewFile,BufRead *.md inoremap <leader>` ``````<esc>hhi<cr><cr><esc>ki
+
