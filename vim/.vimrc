@@ -14,6 +14,25 @@
 "    -> STATUS LINE
 "    -> NETRW
 
+
+"""""""""""""""""""""""""
+""" FIRST THING FIRST
+"""""""""""""""""""""""""
+
+" Don't try to be vi compatible (must set first)
+set nocompatible
+
+" Don't wrap files
+set nowrap
+
+" Encoding
+set encoding=utf-8
+
+" Plugins essential
+syntax on
+filetype plugin indent on
+
+
 """"""""""""""
 """ LEADER
 """"""""""""""
@@ -34,9 +53,6 @@ nnoremap <leader>N :bprev<cr>
 nnoremap <leader>r :source ~/.vimrc<cr>
 
 " List all buffers
-" nnoremap <leader>B :buffers!<cr>
-" Open a buffer
-" nnoremap <leader>b :b<space>
 nnoremap <leader>b :CtrlPBuffer<cr>
 
 " Toggle paste mode when you want to paste from outside source
@@ -53,10 +69,8 @@ set pastetoggle=<leader>p
 " 3. nerdcommenter
 " 4. nerdtree
 " 5. lightline
-
-" Misc
-syntax on
-filetype plugin indent on
+" 6. surround
+" 7. repeat
 
 " Pathogen
 call pathogen#infect()
@@ -75,15 +89,16 @@ let NERDSpaceDelims=1
 " Nerdtree
 let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\.pyc$', '__pycache__', '\.git']
-let g:NERDTreeWinSize=30
+let g:NERDTreeWinSize=20
 map <leader>f :NERDTreeToggle<cr>
 map <leader>kb :NERDTreeToggle<cr> " Sublime text command
 " map <leader>nn :NERDTreeToggle<cr>
 " map <leader>nb :NERDTreeFromBookmark<Space>
 " map <leader>nf :NERDTreeFind<cr>
-let NERDTreeQuitOnOpen = 1
+let NERDTreeQuitOnOpen = 0
 let NERDTreeMinimalUI=1
 " let g:NERDTreeWinPos = "right"
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif " Close vim if there is only nerdtree
 
 " Lightline
 let g:lightline = {
@@ -111,9 +126,6 @@ set cursorline
 """""""""""""""
 """ GENERAL
 """""""""""""""
-
-" Don't try to be vi compatible (must be first)
-set nocompatible
 
 " Make vim save swapfiles, backups, and undofiles in .vim
 " set swapfile
@@ -162,14 +174,8 @@ set showmatch
  set t_vb=
  set tm=500
 
-" Don't wrap files
-set nowrap
-
 " Keep n lines off the edges of the screen when scrolling
 set scrolloff=4
-
-" Encoding
-set encoding=utf-8
 
 " Reverse the split behavior
 set splitbelow
@@ -190,10 +196,9 @@ set showcmd
 
 " Show status bar
 set laststatus=2 " Always show
-" set laststatus=0 " Always hidden
 
-" Add a bit extra margin to the left
-" set foldcolumn=1
+" Add a bit extra margin to the left beside line number
+set foldcolumn=1
 
 " Ignore files vim doesnt use
 set wildignore+=.git,.hg,.svn
@@ -223,6 +228,9 @@ set history=1000
 if has('clipboard')
     set clipboard=unnamed
 endif
+
+" Change vim split to full block
+set fillchars+=vert:█
 
 """""""""""
 """ MAP
