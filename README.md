@@ -11,5 +11,3 @@ This is my Linux setup. Every folder except "windows" is managed using GNU Stow.
 
 **NOTE: THIS README IS NOT A TUTORIAL HOW TO USE GNU STOW. FOR BEST PRACTICE, SEEK OTHER TUTORIAL. THIS README IS JUST A REMINDER FOR MYSELF.**
 
-
-
