@@ -29,8 +29,6 @@ alias py='python3'
 alias doctest='python3 -m doctest -v'
 alias h='history'
 
-# Easy clear screen
-alias cls='clear'
 
 # NPM lists
 alias nll='npm list --depth=0'
@@ -39,6 +37,10 @@ alias nlg='npm list -g --depth=0'
 # Alert for long command
 alias alert='notify-send 'Alert!' '''
 
-# Open android emulator
-alias emulator='~/Android/Sdk/tools/emulator -avd Nexus_S_API_22'
-
+# Misc
+alias lh='ls -d .*' # Show hidden files/directories only
+alias lsh='du -sh ./* | sort -h' # Directories sorted by size
+alias lss=ls # Common typo
+alias incognito='export HISTFILE=/dev/null' # Incognito mode
+alias server='python -m http.server' # Python simple server `$ server 9999`
+alias cls='clear' # Easy clear screen
