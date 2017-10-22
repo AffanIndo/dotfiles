@@ -47,10 +47,11 @@ nnoremap <leader><space> :let @/=''<cr> " Clear search
 nnoremap <leader>q :q!<cr>
 nnoremap <leader>z :wq<cr>
 nnoremap <leader>w :w<cr>
-nnoremap <leader>v <c-w>v<c-w>l " Split then move to the split
-nnoremap <leader>n :bnext<cr>
+nnoremap <leader>v <C-w>v<C-w>l " Split then move to the split
+nnoremap <leader>n :bnext<cr> " Next
 nnoremap <leader>N :bprev<cr>
-nnoremap <leader>r :source ~/.vimrc<cr>
+nnoremap <leader>r :source ~/.vimrc<cr> " Reset/reload config
+noremap <leader>s :!%:p<cr> " Source (execute) current file
 
 " List all buffers
 nnoremap <leader>b :CtrlPBuffer<cr>
@@ -243,7 +244,8 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-nnoremap ; :
+noremap ; :
+noremap <C-d> :sh<cr>
 
 inoremap <up> <nop>
 inoremap <down> <nop>
@@ -325,4 +327,7 @@ set wildignore+=*.swp,.lock,.DS_Store,._*
 " autocmd BufNewFile,BufRead *.md let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`', '*':'*'}
 " <leader>* will insert multi-line 
 autocmd BufNewFile,BufRead *.md inoremap <leader>` ``````<esc>hhi<cr><cr><esc>ki
+autocmd BufNewFile,BufRead *.md set wrap
+autocmd BufNewFile,BufRead *.md nnoremap j gj
+autocmd BufNewFile,BufRead *.md nnoremap k gk
 
