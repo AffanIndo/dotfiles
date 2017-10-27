@@ -22,4 +22,14 @@ extract () {
 
 function crun { make $1 && ./$1; }
 
+# Mkdir recursively then cd
 mkcd () { NAME=$1; mkdir -p "$NAME"; cd "$NAME"; }
+
+# List apt history
+apt-history () {
+    (zcat $(ls -tr /var/log/apt/history.log*.gz); cat /var/log/apt/history.log) 2>/dev/null |
+    egrep '^(Start-Date:|Commandline:)' |
+    grep -v aptdaemon |
+    egrep '^Commandline:'
+}
+

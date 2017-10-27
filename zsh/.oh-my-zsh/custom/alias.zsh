@@ -7,6 +7,7 @@ alias .....='cd ../../../..'
 # Fast cd
 alias cdgit='cd ~/Programming/git'
 alias cddot='cd ~/dotfiles'
+alias cdw='cd /media/affan'
 
 # Git stuff
 alias ga='git add'

@@ -24,3 +24,4 @@ elif [ $1 == update ]; then
 else
     echo "Unknown command"
 fi
+
