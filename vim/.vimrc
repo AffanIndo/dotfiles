@@ -323,9 +323,7 @@ set wildignore+=*.doc,*.pdf,*.cbr,*.cbz
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz,*.kgb
 set wildignore+=*.swp,.lock,.DS_Store,._*
 
-" " Autopairs add * if filetype is markdown
-" autocmd BufNewFile,BufRead *.md let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`', '*':'*'}
-" <leader>* will insert multi-line 
+" Markdown support
 autocmd BufNewFile,BufRead *.md inoremap <leader>` ``````<esc>hhi<cr><cr><esc>ki
 autocmd BufNewFile,BufRead *.md set wrap
 autocmd BufNewFile,BufRead *.md nnoremap j gj
