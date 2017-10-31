@@ -12,7 +12,6 @@
 "    -> GENERAL
 "    -> MAP
 "    -> STATUS LINE
-"    -> NETRW
 "    -> MISC
 
 """""""""""""""""""""""""
@@ -262,55 +261,6 @@ inoremap <right> <nop>
 " set statusline+=%L        " Total lines
 " set statusline+=,         " Comma separator
 " set statusline+=%c        " Column
-
-"""""""""""""
-""" NETRW
-"""""""""""""
-
-" " Remove top banner description
-" let g:netrw_banner=0
-
-" " Tree style file listing
-" let g:netrw_liststyle=3
-
-" " Set behavior how the files opened
-" " 1 - open files in a new horizontal split
-" " 2 - open files in a new vertical split
-" " 3 - open files in a new tab
-" " 4 - open in previous window
-" let g:netrw_browse_split=4
-
-" " Open new files in right window
-" let g:netrw_altv=1
-" set autochdir
-" " Set the width of the netrw
-" let g:netrw_winsize=15 " Sets to 15% width
-
-" " Toggle
-" function! ToggleVExplorer()
-  " if exists("t:expl_buf_num")
-      " let expl_win_num = bufwinnr(t:expl_buf_num)
-      " if expl_win_num != -1
-          " let cur_win_nr = winnr()
-          " exec expl_win_num . 'wincmd w'
-          " close
-          " exec cur_win_nr . 'wincmd w'
-          " unlet t:expl_buf_num
-      " else
-          " unlet t:expl_buf_num
-      " endif
-  " else
-      " exec '1wincmd w'
-      " Vexplore
-      " let t:expl_buf_num = bufnr("%")
-  " endif
-" endfunction
-" nnoremap <silent> <leader>f :call ToggleVExplorer()<CR>
-
-""""""""""""
-""" MISC
-""""""""""""
-
 " Ignore files vim doesnt use
 set wildignore+=.git,.hg,.svn
 set wildignore+=*.aux,*.out,*.toc
@@ -324,7 +274,6 @@ set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz,*.kgb
 set wildignore+=*.swp,.lock,.DS_Store,._*
 
 " Markdown support
-autocmd BufNewFile,BufRead *.md inoremap <leader>` ``````<esc>hhi<cr><cr><esc>ki
 autocmd BufNewFile,BufRead *.md set wrap
 autocmd BufNewFile,BufRead *.md nnoremap j gj
 autocmd BufNewFile,BufRead *.md nnoremap k gk

@@ -9,7 +9,7 @@ This is my Linux setup. Every folder except "windows" is managed using GNU Stow.
 * Run command `stow <folder>`
 * Watch as stow create symlink to your dotfiles.
 * If you stow Vim, after you have done that, then run `./vim_automata install` to install the plugins.
-* Run `./vim_automata` update to update the plugins.
+* Run `./vim_automata update` update to update the plugins.
 
 **NOTE: THIS README IS NOT A TUTORIAL HOW TO USE GNU STOW. FOR BEST PRACTICE, SEEK OTHER TUTORIAL. THIS README IS JUST A REMINDER FOR MYSELF.**
 
