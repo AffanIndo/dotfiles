@@ -11,7 +11,6 @@
 "    -> COLOR
 "    -> GENERAL
 "    -> MAP
-"    -> STATUS LINE
 "    -> MISC
 
 """""""""""""""""""""""""
@@ -238,29 +237,23 @@ noremap <down> <nop>
 noremap <left> <nop>
 noremap <right> <nop>
 noremap Q <nop>
+noremap ; :
+noremap <C-d> :sh<cr>
+
 nnoremap <C-h> <C-w>h " Fast moving
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-
-noremap ; :
-noremap <C-d> :sh<cr>
 
 inoremap <up> <nop>
 inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
 
-""""""""""""""""""
-""" STATUS LINE
-""""""""""""""""""
+""""""""""""
+""" MISC
+""""""""""""
 
-" set statusline=%f         " File name
-" set statusline=%F         " Path to the file
-" set statusline+=%=        " Switch to the right side
-" set statusline+=%L        " Total lines
-" set statusline+=,         " Comma separator
-" set statusline+=%c        " Column
 " Ignore files vim doesnt use
 set wildignore+=.git,.hg,.svn
 set wildignore+=*.aux,*.out,*.toc
@@ -278,3 +271,5 @@ autocmd BufNewFile,BufRead *.md set wrap
 autocmd BufNewFile,BufRead *.md nnoremap j gj
 autocmd BufNewFile,BufRead *.md nnoremap k gk
 
+" C++ support
+map <F7> :make<CR>
