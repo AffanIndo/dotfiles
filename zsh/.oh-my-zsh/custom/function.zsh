@@ -20,7 +20,6 @@ extract () {
    fi
 }
 
-function crun { make $1 && ./$1; }
 
 # Mkdir recursively then cd
 mkcd () { NAME=$1; mkdir -p "$NAME"; cd "$NAME"; }
@@ -33,3 +32,4 @@ apt-history () {
     egrep '^Commandline:'
 }
 
+function crun () { g++ $1 && ./$1; }
