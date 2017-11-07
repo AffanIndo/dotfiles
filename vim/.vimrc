@@ -93,13 +93,8 @@ let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\.pyc$', '__pycache__', '\.git']
 let g:NERDTreeWinSize=20
 map <leader>f :NERDTreeToggle<cr>
-map <leader>kb :NERDTreeToggle<cr> " Sublime text command
-" map <leader>nn :NERDTreeToggle<cr>
-" map <leader>nb :NERDTreeFromBookmark<Space>
-" map <leader>nf :NERDTreeFind<cr>
 let NERDTreeQuitOnOpen = 0
 let NERDTreeMinimalUI=1
-" let g:NERDTreeWinPos = "right"
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif " Close vim if there is only nerdtree
 
 " Lightline
@@ -121,12 +116,8 @@ augroup nord-overrides
 augroup END
 
 " Color
-" Custom colorscheme, comment if you want to use default
 colorscheme nord
 set cursorline
-" Default colorscheme, comment if you want to use custom
-" colorscheme default
-" set nocursorline
 
 """""""""""""""
 """ GENERAL
@@ -271,5 +262,3 @@ autocmd BufNewFile,BufRead *.md set wrap
 autocmd BufNewFile,BufRead *.md nnoremap j gj
 autocmd BufNewFile,BufRead *.md nnoremap k gk
 
-" C++ support
-map <F7> :make<CR>

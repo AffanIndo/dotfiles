@@ -8,6 +8,7 @@ alias .....='cd ../../../..'
 alias cdgit='cd ~/Programming/git'
 alias cddot='cd ~/dotfiles'
 alias cdw='cd /media/affan'
+alias cdblog='cd ~/Programming/git/AffanIndo.github.io'
 
 # Git stuff
 alias ga='git add'
