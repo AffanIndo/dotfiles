@@ -79,10 +79,10 @@ call pathogen#infect()
 call pathogen#helptags()
 
 " CtrlP
-let g:ctrlp_max_height = 50
+let g:ctrlp_max_height = 10
 let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git'
 let g:ctrlp_working_path_mode = 'ar' " CtrlP scans through .git project
-let g:ctrlp_max_files = 0 " Set no max file limit
+let g:ctrlp_max_files = 1000 " Set no max file limit
 let g:ctrlp_show_hidden = 1
 
 " Nerdcommenter
@@ -206,11 +206,6 @@ set undolevels=1000
 
 " Set how many history vim has to remember
 set history=1000
-
-" Enable paste to system clipboard if has clipboard feature
-if has('clipboard')
-    set clipboard=unnamed
-endif
 
 " Change vim split to full block
 set fillchars+=vert:█
