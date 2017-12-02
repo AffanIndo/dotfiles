@@ -1,0 +1,111 @@
+!!!!!!!!!!!!!!!!!!
+!!! BASIC INFO !!!
+!!!!!!!!!!!!!!!!!!
+!
+! Maintainer: AffanIndo
+!
+! Inspired by: http://dotshare.it/dots/1011/
+!
+! Sections:
+!    -> FONT
+!    -> SCROLLBAR AND CURSOR
+!    -> TABS
+!    -> COLOR
+!    -> MISC
+
+!!!!!!!!!!!!
+!!! FONT !!!
+!!!!!!!!!!!!
+
+URxvt.font:xft:DejaVu Sans Mono:pixelsize=15
+URxvt.boldFont:xft:DejaVu Sans Mono:bold:pixelsize=15
+URxvt.italicfont:xft:DejaVu Sans Mono:italic:pixelsize=15
+URxvt.bolditalicFont:xft:DejaVu Sans Mono:bold:italic:pixelsize=15
+URxvt*letterSpace: -1
+URxvt*allow_bold: true
+
+! Font configuration
+Xft.autohint: true
+Xft.antialias: true
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.rgba: rgb
+Xft.lcdfilter: lcddefault
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! SCROLLBAR AND CURSOR !!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+URxvt*saveLines: 300000
+URxvt.scrollBar: false
+!URxvt*scrollstyle: plain
+URxvt*cursorBlink: true
+URxvt*cursorUnderline: false
+
+!!!!!!!!!!!!
+!!! TABS !!!
+!!!!!!!!!!!!
+
+URxvt.tabbedex.autohide: yes
+URxvt.tabbedex.tabbar-fg: 2
+URxvt.tabbedex.tabbar-bg: 0
+URxvt.tabbedex.tab-fg: 10
+URxvt.tabbedex.tab-bg: 0
+URxvt.tabbedex.title: yes
+URxvt.tabbedex.new-button: no
+
+
+!!!!!!!!!!!!!
+!!! COLOR !!!
+!!!!!!!!!!!!!
+
+! special
+*.foreground: #93a1a1
+*.background: #3c3b37
+*.cursorColor: #93a1a1
+
+! black
+*.color0: #5f5f5f
+*.color8: #828282
+
+! red
+*.color1: #d96468
+*.color9: #d98f93
+
+! green
+*.color2: #a2d964
+*.color10: #b8d98f
+
+! yellow
+*.color3: #d9c964
+*.color11: #d9cf8f
+
+! blue
+*.color4: #64a2d9
+*.color12: #8f99d9
+
+! magenta
+*.color5: #9a64d9
+*.color13: #b08fd9
+
+! cyan
+*.color6: #64d9d5
+*.color14: #8fd9d5
+
+! white
+*.color7: #989898
+*.color15: #c5c5c5
+
+!!!!!!!!!!!!
+!!! MISC !!!
+!!!!!!!!!!!!
+
+! Window size
+URxvt.geometry: 80x22
+
+! Disable picture insert mode
+URxvt.iso14755: False
+
+! Disable bell
+URxvt.insecure: false
+
