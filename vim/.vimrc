@@ -223,7 +223,6 @@ noremap <down> <nop>
 noremap <left> <nop>
 noremap <right> <nop>
 noremap Q <nop>
-noremap ; :
 noremap <C-d> :sh<cr>
 
 nnoremap <C-h> <C-w>h " Fast moving
