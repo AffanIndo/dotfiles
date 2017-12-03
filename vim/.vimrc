@@ -218,6 +218,8 @@ set fillchars+=vert:█
 " nnoremap -> map normal
 " inoremap -> map insert
 
+map <F5> :setlocal spell! spelllang=en_us<CR>
+
 noremap <up> <nop>
 noremap <down> <nop>
 noremap <left> <nop>
