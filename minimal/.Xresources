@@ -60,41 +60,42 @@ URxvt.tabbedex.new-button: no
 !!!!!!!!!!!!!
 
 ! special
-*.foreground:   #98d1ce
-*.background:   #0a0f14
-*.cursorColor:  #98d1ce
+*.foreground:   #e8dfd6
+*.background:   #021b21
+*.cursorColor:  #e8dfd6
 
 ! black
-*.color0:       #0a0f14
-*.color8:       #10151b
+*.color0:       #032c36
+*.color8:       #065f73
 
 ! red
-*.color1:       #c33027
-*.color9:       #d26939
+*.color1:       #c2454e
+*.color9:       #ef5847
 
 ! green
-*.color2:       #26a98b
-*.color10:      #081f2d
+*.color2:       #7cbf9e
+*.color10:      #a2d9b1
 
 ! yellow
-*.color3:       #edb54b
-*.color11:      #245361
+*.color3:       #8a7a63
+*.color11:      #beb090
 
 ! blue
-*.color4:       #195465
-*.color12:      #093748
+*.color4:       #2e3340
+*.color12:      #61778d
 
 ! magenta
-*.color5:       #4e5165
-*.color13:      #888ba5
+*.color5:       #ff5879
+*.color13:      #ff99a1
 
 ! cyan
-*.color6:       #33859d
-*.color14:      #599caa
+*.color6:       #44b5b1
+*.color14:      #9ed9d8
 
 ! white
-*.color7:       #98d1ce
-*.color15:      #d3ebe9
+*.color7:       #f2f1b9
+*.color15:      #f6f6c9
+
 
 !!!!!!!!!!!!
 !!! MISC !!!
