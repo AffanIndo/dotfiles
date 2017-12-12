@@ -258,3 +258,15 @@ autocmd BufNewFile,BufRead *.md set wrap
 autocmd BufNewFile,BufRead *.md nnoremap j gj
 autocmd BufNewFile,BufRead *.md nnoremap k gk
 
+" Templates
+if has("autocmd")
+  augroup templates
+    autocmd BufNewFile *.sh 0r ~/.vim/templates/skeleton.sh
+  augroup END
+endif
+
+if has("autocmd")
+  augroup templates
+    autocmd BufNewFile 20*.md 0r ~/.vim/templates/skeleton.md
+  augroup END
+endif
