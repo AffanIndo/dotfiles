@@ -46,11 +46,12 @@ border_inner_margin 5
 border_width 1
 
 # Default colors and also border colors
-color1 6B5D52
-default_color 6B5D52
-default_shade_color 6B5D52
-default_outline_color 6B5D52
-own_window_colour 6B5D52
+# The light theme 6B5D52
+color1 dcc6e0
+default_color dcc6e0
+default_shade_color dcc6e0
+default_outline_color dcc6e0
+own_window_colour dcc6e0
 
 # Text alignment, other possible values are commented
 #alignment top_left

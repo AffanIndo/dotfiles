@@ -17,9 +17,6 @@
 """ FIRST THING FIRST
 """""""""""""""""""""""""
 
-" Don't try to be vi compatible (must set first)
-set nocompatible
-
 " Don't wrap files
 set nowrap
 
