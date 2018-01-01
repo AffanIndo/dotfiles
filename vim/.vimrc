@@ -35,10 +35,8 @@ filetype plugin indent on
 " You should set leader before loading all plugins
 
 let mapleader=","
-let g:mapleader=","
 
 " General leader map
-nnoremap <leader><space> :let @/=''<cr> " Clear search
 nnoremap <leader>q :q!<cr>
 nnoremap <leader>z :wq<cr>
 nnoremap <leader>w :w<cr>
@@ -108,7 +106,7 @@ let g:user_emmet_leader_key='<leader>z' " <leader>z<comma> to activate.
 
 " Monkeypatch for nord low contrast comment
 augroup nord-overrides
-  autocmd!
+    autocmd!
     autocmd ColorScheme nord highlight Comment ctermfg=103
 augroup END
 
@@ -145,7 +143,6 @@ set backspace=indent,eol,start
 set autoindent
 set expandtab
 set shiftwidth=4
-set smartindent
 set smarttab
 set softtabstop=4
 
@@ -153,7 +150,7 @@ set softtabstop=4
 set gdefault
 
 " Search
-set hlsearch " Highlight all search result
+set nohlsearch
 set smartcase
 set ignorecase
 set incsearch " Searches for strings as you type
@@ -217,10 +214,6 @@ set fillchars+=vert:█
 
 map <F5> :setlocal spell! spelllang=en_us<CR>
 
-noremap <up> <nop>
-noremap <down> <nop>
-noremap <left> <nop>
-noremap <right> <nop>
 noremap Q <nop>
 noremap <C-d> :sh<cr>
 
@@ -228,11 +221,6 @@ nnoremap <C-h> <C-w>h " Fast moving
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
 
 """"""""""""
 """ MISC

@@ -1,5 +1,4 @@
 " General
-set nocompatible
 set nowrap
 set encoding=utf-8
 syntax on
@@ -24,12 +23,10 @@ set backspace=indent,eol,start
 set autoindent
 set expandtab
 set shiftwidth=4
-set smartindent
 set smarttab
 set softtabstop=4
 
 " Search
-set hlsearch " Highlight all search result
 set smartcase
 set ignorecase
 set incsearch " Searches for strings as you type
@@ -40,19 +37,11 @@ set wildmenu
 set wildignorecase
 
 " Status bar
-set noshowmode
+set showmode
 set showcmd
 set laststatus=2 " Always show
 
 " Map
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
-noremap <up> <nop>
-noremap <down> <nop>
-noremap <left> <nop>
-noremap <right> <nop>
 noremap Q <nop>
 noremap <C-d> :sh<cr>
 nnoremap <C-h> <C-w>h " Fast moving
@@ -62,8 +51,6 @@ nnoremap <C-l> <C-w>l
 
 " Leader
 let mapleader=","
-let g:mapleader=","
-nnoremap <leader><space> :let @/=''<cr> " Clear search
 nnoremap <leader>q :q!<cr>
 nnoremap <leader>z :wq<cr>
 nnoremap <leader>w :w<cr>
