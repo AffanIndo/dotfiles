@@ -67,7 +67,7 @@ class terminal(Command):
         import os
         from ranger.ext.get_executables import get_executables
         if os.environ.get('TMUX'):
-            command = 'tmux split-window -h'
+            command = 'tmux split-window -v'
         else:
             command = os.environ.get('TERMCMD', os.environ.get('TERM'))
             if command not in get_executables():
