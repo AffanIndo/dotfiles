@@ -86,7 +86,7 @@ let NERDSpaceDelims=1
 " Nerdtree
 let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\.pyc$', '__pycache__', '\.git']
-let g:NERDTreeWinSize=20
+let g:NERDTreeWinSize=30
 map <leader>f :NERDTreeToggle<cr>
 let NERDTreeQuitOnOpen = 0
 let NERDTreeMinimalUI=1
@@ -104,14 +104,8 @@ let g:user_emmet_leader_key='<leader>z' " <leader>z<comma> to activate.
 """ COLOR
 """""""""""""
 
-" Monkeypatch for nord low contrast comment
-augroup nord-overrides
-    autocmd!
-    autocmd ColorScheme nord highlight Comment ctermfg=103
-augroup END
-
-" Color
-colorscheme nord
+set background=dark
+colorscheme hybrid
 set cursorline
 
 """""""""""""""
