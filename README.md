@@ -1,6 +1,12 @@
 # dotfiles
 This is my Linux setup. Every folder except "windows" is managed using GNU Stow.
 
+# Minimal
+
+There is a minimal version of this dotfiles in ./minimal/. I used it as a base for machine that I want to keep bloat-free.
+
+The `.Xresources` in that folder is the same as the one in the `./urxvt/` but it has different font.
+
 ## How To Install
 * Clone this repo directly to your home folder.
 * Install GNU Stow.

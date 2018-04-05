@@ -5,6 +5,7 @@
 " Maintainer: AffanIndo
 "
 " Sections:
+"    -> FIRST THING FIRST
 "    -> BASIC INFO
 "    -> LEADER
 "    -> PLUGIN
@@ -17,7 +18,7 @@
 """ FIRST THING FIRST
 """""""""""""""""""""""""
 
-" Don't wrap files
+" Don't wrap text
 set nowrap
 
 " Encoding
@@ -41,10 +42,9 @@ nnoremap <leader>q :q!<cr>
 nnoremap <leader>z :wq<cr>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>v <C-w>v<C-w>l " Split then move to the split
-nnoremap <leader>n :bnext<cr> " Next
-nnoremap <leader>N :bprev<cr>
+nnoremap <leader>n :bnext<cr> " Next buffer
+nnoremap <leader>N :bprev<cr> " Previous buffer
 nnoremap <leader>r :source ~/.vimrc<cr> " Reset/reload config
-noremap <leader>s :!%:p<cr> " Source (execute) current file
 
 " List all buffers
 nnoremap <leader>b :CtrlPBuffer<cr>
@@ -209,7 +209,6 @@ set fillchars+=vert:█
 map <F5> :setlocal spell! spelllang=en_us<CR>
 
 noremap Q <nop>
-noremap <C-d> :sh<cr>
 
 nnoremap <C-h> <C-w>h " Fast moving
 nnoremap <C-j> <C-w>j

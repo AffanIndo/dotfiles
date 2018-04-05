@@ -9,8 +9,6 @@ set showmatch " Highlight matching brace
 set hidden 
 set lazyredraw
 set list listchars=tab:»·,trail:·,nbsp:·
-set undolevels=1000
-set history=1000
 set scrolloff=4
 set splitbelow
 set splitright
@@ -27,6 +25,7 @@ set smarttab
 set softtabstop=4
 
 " Search
+set nohlsearch
 set smartcase
 set ignorecase
 set incsearch " Searches for strings as you type
@@ -43,7 +42,6 @@ set laststatus=2 " Always show
 
 " Map
 noremap Q <nop>
-noremap <C-d> :sh<cr>
 nnoremap <C-h> <C-w>h " Fast moving
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -54,3 +52,4 @@ let mapleader=","
 nnoremap <leader>q :q!<cr>
 nnoremap <leader>z :wq<cr>
 nnoremap <leader>w :w<cr>
+
