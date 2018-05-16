@@ -248,3 +248,4 @@ if has("autocmd")
     autocmd BufNewFile 20*.md 0r ~/.vim/templates/skeleton.md
   augroup END
 endif
+
