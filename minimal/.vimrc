@@ -5,8 +5,6 @@ syntax on
 filetype plugin indent on
 set nobackup
 set noswapfile
-set showmatch " Highlight matching brace
-set hidden 
 set lazyredraw
 set list listchars=tab:»·,trail:·,nbsp:·
 set scrolloff=4

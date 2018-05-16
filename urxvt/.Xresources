@@ -17,10 +17,10 @@
 !!! FONT !!!
 !!!!!!!!!!!!
 
-URxvt.font:xft:DejaVu Sans Mono for Powerline:pixelsize=15
-URxvt.boldFont:xft:DejaVu Sans Mono for Powerline:bold:pixelsize=15
-URxvt.italicfont:xft:DejaVu Sans Mono for Powerline:italic:pixelsize=15
-URxvt.bolditalicFont:xft:DejaVu Sans Mono for Powerline:bold:italic:pixelsize=15
+URxvt.font:xft:Fira Mono:pixelsize=18
+URxvt.boldFont:xft:Fira Mono:bold:pixelsize=18
+URxvt.italicfont:xft:Fira Mono:italic:pixelsize=18
+URxvt.bolditalicFont:xft:Fira Mono:bold:italic:pixelsize=18
 URxvt*letterSpace: -1
 URxvt*allow_bold: true
 
