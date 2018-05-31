@@ -44,7 +44,6 @@ nnoremap <leader>w :w<cr>
 nnoremap <leader>v <C-w>v<C-w>l " Split then move to the split
 nnoremap <leader>n :bnext<cr> " Next buffer
 nnoremap <leader>N :bprev<cr> " Previous buffer
-nnoremap <leader>r :source ~/.vimrc<cr> " Reset/reload config
 
 " List all buffers
 nnoremap <leader>b :CtrlPBuffer<cr>
@@ -58,16 +57,15 @@ set pastetoggle=<leader>p
 "
 " List of plugins:
 " 0. pathogen
-" 1. auto-pairs
-" 2. ctrlp
+" 1. ctrlp
+" 2. auto-pairs
 " 3. nerdcommenter
 " 4. nerdtree
 " 5. lightline
 " 6. surround
 " 7. repeat
-" 8. emmet
-" 9. fugitive
-" 10. supertab
+" 8. fugitive
+" 9. supertab
 
 " Pathogen
 call pathogen#infect()
@@ -87,18 +85,15 @@ let NERDSpaceDelims=1
 let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\.pyc$', '__pycache__', '\.git']
 let g:NERDTreeWinSize=30
-map <leader>f :NERDTreeToggle<cr>
 let NERDTreeQuitOnOpen = 0
 let NERDTreeMinimalUI=1
+map <leader>f :NERDTreeToggle<cr>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif " Close vim if there is only nerdtree
 
 " Lightline
 let g:lightline = {
     \ 'colorscheme': 'wombat',
     \ }
-
-" Emmet-vim
-let g:user_emmet_leader_key='<leader>z' " <leader>z<comma> to activate.
 
 """""""""""""
 """ COLOR
@@ -219,8 +214,9 @@ nnoremap <C-l> <C-w>l
 """ MISC
 """"""""""""
 
-" Ignore files vim doesnt use
+" Ignore files that vim doesn't use
 set wildignore+=.git,.hg,.svn
+set wildignore+=.steam,.cache
 set wildignore+=*.aux,*.out,*.toc
 set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest,*.rbc,*.class
 set wildignore+=*.ai,*.bmp,*.gif,*.ico,*.jpg,*.jpeg,*.png,*.psd,*.webp
@@ -240,11 +236,6 @@ autocmd BufNewFile,BufRead *.md nnoremap k gk
 if has("autocmd")
   augroup templates
     autocmd BufNewFile *.sh 0r ~/.vim/templates/skeleton.sh
-  augroup END
-endif
-
-if has("autocmd")
-  augroup templates
     autocmd BufNewFile 20*.md 0r ~/.vim/templates/skeleton.md
   augroup END
 endif
