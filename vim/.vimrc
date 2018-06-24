@@ -66,6 +66,7 @@ set pastetoggle=<leader>p
 " 7. repeat
 " 8. fugitive
 " 9. supertab
+" 10. goyo
 
 " Pathogen
 call pathogen#infect()
