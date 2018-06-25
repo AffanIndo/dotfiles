@@ -59,7 +59,8 @@ URxvt.tabbedex.new-button: no
 !!! COLOR !!!
 !!!!!!!!!!!!!
 
-! special
+! hybrid colorscheme
+! Special
 *background: #1D1F21
 *foreground: #C5C8C6
 ! black
