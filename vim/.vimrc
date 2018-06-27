@@ -192,7 +192,7 @@ set undolevels=1000
 set history=1000
 
 " Change vim split to full block
-set fillchars+=vert:█
+" set fillchars+=vert:█
 
 """""""""""
 """ MAP
