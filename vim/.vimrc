@@ -61,12 +61,11 @@ set pastetoggle=<leader>p
 " 2. auto-pairs
 " 3. nerdcommenter
 " 4. nerdtree
-" 5. lightline
-" 6. surround
-" 7. repeat
-" 8. fugitive
-" 9. supertab
-" 10. goyo
+" 5. surround
+" 6. repeat
+" 7. fugitive
+" 8. supertab
+" 9. goyo
 
 " Pathogen
 call pathogen#infect()
@@ -90,11 +89,6 @@ let NERDTreeQuitOnOpen = 0
 let NERDTreeMinimalUI=1
 map <leader>f :NERDTreeToggle<cr>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif " Close vim if there is only nerdtree
-
-" Lightline
-let g:lightline = {
-    \ 'colorscheme': 'wombat',
-    \ }
 
 """""""""""""
 """ COLOR
@@ -170,7 +164,7 @@ set wildignorecase
 set hidden
 
 " Show last line
-set noshowmode
+set showmode
 set showcmd
 
 " Show status bar
