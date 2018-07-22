@@ -14,10 +14,9 @@
 
 ---
 
-
 ## Minimal
 
-There is a minimal version of this dotfiles in ./minimal/. I use for a setup that I want to keep bloat-free.
+There is a minimal version of this dotfiles in `./minimal/`. I use for a setup that I want to keep bloat-free.
 
 The `.Xresources` in that folder is the same as the one in the `./urxvt/`. Use the normal `.Xresources` if you want to use URxvt on minimal setup.
 
