@@ -95,8 +95,12 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 """""""""""""
 
 set background=dark
-colorscheme hybrid
+colorscheme dracula
 set cursorline
+
+" Fix dracula colorsheme bug
+let g:dracula_italic = 0
+highlight Normal ctermbg=None
 
 """""""""""""""
 """ GENERAL
@@ -226,6 +230,9 @@ set wildignore+=*.swp,.lock,.DS_Store,._*
 autocmd BufNewFile,BufRead *.md set wrap
 autocmd BufNewFile,BufRead *.md nnoremap j gj
 autocmd BufNewFile,BufRead *.md nnoremap k gk
+autocmd BufNewFile,BufRead *.txt set wrap
+autocmd BufNewFile,BufRead *.txt nnoremap j gj
+autocmd BufNewFile,BufRead *.txt nnoremap k gk
 
 " Templates
 if has("autocmd")
