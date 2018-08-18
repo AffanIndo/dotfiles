@@ -82,9 +82,9 @@ let g:ctrlp_show_hidden = 1
 let NERDSpaceDelims=1
 
 " Nerdtree
+let g:NERDTreeWinSize=30
 let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\.pyc$', '__pycache__', '\.git']
-let g:NERDTreeWinSize=30
 let NERDTreeQuitOnOpen = 0
 let NERDTreeMinimalUI=1
 map <leader>f :NERDTreeToggle<cr>
