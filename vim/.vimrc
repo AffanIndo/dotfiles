@@ -95,12 +95,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 """""""""""""
 
 set background=dark
-colorscheme dracula
+colorscheme hybrid
 set cursorline
-
-" Fix dracula colorsheme bug
-let g:dracula_italic = 0
-highlight Normal ctermbg=None
 
 """""""""""""""
 """ GENERAL

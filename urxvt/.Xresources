@@ -57,63 +57,93 @@ URxvt.tabbedex.new-button: no
 !!! COLOR !!!
 !!!!!!!!!!!!!
 
-! Dracula colorscheme
-! special
-*.foreground: #F8F8F2
-*.background: #282A36
-! black
-*.color0:     #000000
-*.color8:     #4D4D4D
-! red
-*.color1:     #FF5555
-*.color9:     #FF6E67
-! green
-*.color2:     #50FA7B
-*.color10:    #5AF78E
-! yellow
-*.color3:     #F1FA8C
-*.color11:    #F4F99D
-! blue
-*.color4:     #BD93F9
-*.color12:    #CAA9FA
-! magenta
-*.color5:     #FF79C6
-*.color13:    #FF92D0
-! cyan
-*.color6:     #8BE9FD
-*.color14:    #9AEDFE
-! white
-*.color7:     #BFBFBF
-*.color15:    #E6E6E6
-
-! ! Hybrid colorscheme
+! ! Ocean colorscheme
 ! ! special
-! *background: #1D1F21
-! *foreground: #C5C8C6
+! *.foreground:   #c0c5ce
+! *.background:   #2b303b
+! *.cursorColor:  #c0c5ce
 ! ! black
-! *color0:     #282A2E
-! *color8:     #373B41
+! *.color0:       #2b303b
+! *.color8:       #65737e
 ! ! red
-! *color1:     #A54242
-! *color9:     #CC6666
+! *.color1:       #bf616a
+! *.color9:       #bf616a
 ! ! green
-! *color2:     #8C9440
-! *color10:    #B5BD68
+! *.color2:       #a3be8c
+! *.color10:      #a3be8c
 ! ! yellow
-! *color3:     #DE935F
-! *color11:    #F0C674
+! *.color3:       #ebcb8b
+! *.color11:      #ebcb8b
 ! ! blue
-! *color4:     #5F819D
-! *color12:    #81A2BE
+! *.color4:       #8fa1b3
+! *.color12:      #8fa1b3
 ! ! magenta
-! *color5:     #85678F
-! *color13:    #B294BB
+! *.color5:       #b48ead
+! *.color13:      #b48ead
 ! ! cyan
-! *color6:     #5E8D87
-! *color14:    #8ABEB7
+! *.color6:       #96b5b4
+! *.color14:      #96b5b4
 ! ! white
-! *color7:     #707880
-! *color15:    #C5C8C6
+! *.color7:       #c0c5ce
+! *.color15:      #eff1f5
+
+! ! Dracula colorscheme
+! ! special
+! *.foreground: #F8F8F2
+! *.background: #282A36
+! ! black
+! *.color0:     #000000
+! *.color8:     #4D4D4D
+! ! red
+! *.color1:     #FF5555
+! *.color9:     #FF6E67
+! ! green
+! *.color2:     #50FA7B
+! *.color10:    #5AF78E
+! ! yellow
+! *.color3:     #F1FA8C
+! *.color11:    #F4F99D
+! ! blue
+! *.color4:     #BD93F9
+! *.color12:    #CAA9FA
+! ! magenta
+! *.color5:     #FF79C6
+! *.color13:    #FF92D0
+! ! cyan
+! *.color6:     #8BE9FD
+! *.color14:    #9AEDFE
+! ! white
+! *.color7:     #BFBFBF
+! *.color15:    #E6E6E6
+
+! Hybrid colorscheme
+! special
+*background: #1D1F21
+*foreground: #C5C8C6
+! black
+*color0:     #282A2E
+*color8:     #373B41
+! red
+*color1:     #A54242
+*color9:     #CC6666
+! green
+*color2:     #8C9440
+*color10:    #B5BD68
+! yellow
+*color3:     #DE935F
+*color11:    #F0C674
+! blue
+*color4:     #5F819D
+*color12:    #81A2BE
+! magenta
+*color5:     #85678F
+*color13:    #B294BB
+! cyan
+*color6:     #5E8D87
+*color14:    #8ABEB7
+! white
+*color7:     #707880
+*color15:    #C5C8C6
 
 !!!!!!!!!!!!
 !!! MISC !!!
