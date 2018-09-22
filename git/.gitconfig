@@ -1,7 +1,0 @@
-[user]
-	name = AffanIndo
-	email = AffanIndo@users.noreply.github.com
-[push]
-	default = simple
-[credential]
-	helper = cache --timeout=18000

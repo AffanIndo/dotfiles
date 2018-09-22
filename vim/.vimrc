@@ -95,7 +95,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 """""""""""""
 
 set background=dark
-colorscheme hybrid
+colorscheme solarized
 set cursorline
 
 """""""""""""""
