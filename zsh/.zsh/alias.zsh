@@ -10,7 +10,6 @@ alias cddot='cd ~/dotfiles'
 alias cdw='cd /media/affan'
 alias cdblog='cd ~/Programming/git/AffanIndo.github.io'
 alias cdpython='cd ~/Programming/git/python-script'
-alias cdc='cd ~/Programming/project/learn-cpp'
 
 # Git stuff
 alias ga='git add'
@@ -32,6 +31,7 @@ alias yd='youtube-dl'
 alias py='python3'
 alias doctest='python3 -m doctest -v'
 alias h='history'
+alias hg='history | grep '
 
 
 # NPM lists
@@ -42,9 +42,12 @@ alias nlg='npm list -g --depth=0'
 alias alert='notify-send 'Alert!' '''
 
 # Misc
+alias mkdir='mkdir -p'
+alias cp='cp -r'
+alias ls='ls -hF --color=auto'
+alias ll='ls -lahF --color=auto'
 alias lh='ls -d .*' # Show hidden files/directories only
-alias lsh='du -sh ./* | sort -h' # Directories sorted by size
-alias lss=ls # Common typo
+alias lss='du -sh ./* | sort -h' # Directories sorted by size
 alias incognito='export HISTFILE=/dev/null' # Incognito mode
 alias server='python -m http.server' # Python simple server `$ server 9999`
 alias cls='clear' # Easy clear screen
