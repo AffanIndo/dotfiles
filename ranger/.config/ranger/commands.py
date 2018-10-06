@@ -61,7 +61,7 @@ class my_edit(Command):
 class terminal(Command):
     """:terminal
 
-   Open new tmux split in the current directory.
+    Open new tmux split in the current directory.
     """
     def execute(self):
         import os

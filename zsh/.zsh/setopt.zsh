@@ -8,11 +8,12 @@ setopt HIST_IGNORE_SPACE # Remove command line from history list when first char
 setopt EXTENDED_HISTORY
 setopt SHARE_HISTORY
 
-# Tab completion
-setopt MENU_COMPLETE
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-zstyle ':completion:*' menu select
-
 # History searching with arrow keys
 bindkey "$key[Up]" up-line-or-search
 bindkey "$key[Down]" down-line-or-search
+
+# Tab completion
+setopt MENU_COMPLETE
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*' # Case insensitive, and autocomplete partial matches
+zstyle ':completion:*' menu select
+
