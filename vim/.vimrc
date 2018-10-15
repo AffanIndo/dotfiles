@@ -223,11 +223,10 @@ set wildignore+=*.swp,.lock,.DS_Store,._*
 
 " Markdown support
 autocmd BufNewFile,BufRead *.md set wrap
+autocmd BufNewFile,BufRead *.md set linebreak
+autocmd BufNewFile,BufRead *.md Goyo 80
 autocmd BufNewFile,BufRead *.md nnoremap j gj
 autocmd BufNewFile,BufRead *.md nnoremap k gk
-autocmd BufNewFile,BufRead *.txt set wrap
-autocmd BufNewFile,BufRead *.txt nnoremap j gj
-autocmd BufNewFile,BufRead *.txt nnoremap k gk
 
 " Templates
 if has("autocmd")
