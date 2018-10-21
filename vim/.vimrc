@@ -223,7 +223,7 @@ set wildignore+=*.swp,.lock,.DS_Store,._*
 
 " Markdown support
 autocmd BufNewFile,BufRead *.md set wrap
-autocmd BufNewFile,BufRead *.md set linebreak
+autocmd BufNewFile,BufRead *.md set linebreak breakindent
 autocmd BufNewFile,BufRead *.md Goyo 80
 autocmd BufNewFile,BufRead *.md nnoremap j gj
 autocmd BufNewFile,BufRead *.md nnoremap k gk
