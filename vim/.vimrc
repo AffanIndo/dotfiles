@@ -55,16 +55,19 @@ set pastetoggle=<leader>p
 """"""""""""""
 "
 " List of plugins:
-" 0. pathogen
-" 1. ctrlp
-" 2. auto-pairs
-" 3. nerdcommenter
-" 4. nerdtree
-" 5. surround
-" 6. repeat
-" 7. fugitive
-" 8. supertab
-" 9. goyo
+"  0. pathogen
+"  1. ctrlp
+"  2. auto-pairs
+"  3. nerdcommenter
+"  4. nerdtree
+"  5. surround
+"  6. repeat
+"  7. fugitive
+"  8. supertab
+"  9. goyo
+" 10. emmet
+" 11. vim-javascript
+" 12. vim-json
 
 " Pathogen
 call pathogen#infect()
@@ -88,6 +91,9 @@ let NERDTreeQuitOnOpen = 0
 let NERDTreeMinimalUI=1
 map <leader>f :NERDTreeToggle<cr>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif " Close vim if there is only nerdtree
+
+" Emmet
+let g:user_emmet_leader_key='<C-e>'
 
 """""""""""""
 """ COLOR
