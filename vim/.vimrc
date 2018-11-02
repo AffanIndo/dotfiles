@@ -11,6 +11,7 @@
 "    -> PLUGIN
 "    -> COLOR
 "    -> GENERAL
+"    -> STATUS
 "    -> MAP
 "    -> MISC
 
@@ -38,17 +39,12 @@ let mapleader=","
 
 " General leader map
 nnoremap <leader>q :q!<cr>
-nnoremap <leader>z :wq<cr>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>v <C-w>v<C-w>l " Split then move to the split
 nnoremap <leader>n :bnext<cr> " Next buffer
 nnoremap <leader>N :bprev<cr> " Previous buffer
 
 " List all buffers
-nnoremap <leader>b :CtrlPBuffer<cr>
-
-" Toggle paste mode when you want to paste from outside source
-set pastetoggle=<leader>p
 
 """"""""""""""
 """ PLUGIN
@@ -79,6 +75,7 @@ let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git'
 let g:ctrlp_working_path_mode = 'ar' " CtrlP scans through .git project
 let g:ctrlp_max_files = 1000 " Set no max file limit
 let g:ctrlp_show_hidden = 1
+nnoremap <leader>b :CtrlPBuffer<cr>
 
 " Nerdcommenter
 let NERDSpaceDelims=1
@@ -89,8 +86,8 @@ let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\.pyc$', '__pycache__', '\.git']
 let NERDTreeQuitOnOpen = 0
 let NERDTreeMinimalUI=1
-map <leader>f :NERDTreeToggle<cr>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif " Close vim if there is only nerdtree
+nnoremap <leader>f :NERDTreeToggle<cr>
 
 " Emmet
 let g:user_emmet_leader_key='<C-e>'
@@ -114,7 +111,7 @@ set cursorline
 " set directory=~/.vim/tmp//,.
 " set backupdir=~/.vim/tmp//,.
 " set undodir=~/.vim/tmp//,.
-" Use this config if you don't want swapfiles and backups, at all.
+" Use this config if you don't want swapfiles and backups, at all
 set nobackup
 set noswapfile
 
@@ -135,13 +132,13 @@ set shiftwidth=4
 set smarttab
 set softtabstop=4
 
-" The /g flag on :s substitutions by default
+" Use /g flag on :s substitutions by default
 set gdefault
 
 " Search
-set nohlsearch
-set smartcase
+set nohlsearch " Disable highlight
 set ignorecase
+set smartcase
 set incsearch " Searches for strings as you type
 
 " Highlight matching brace
@@ -168,13 +165,6 @@ set wildignorecase
 " Allow vim to hide modified buffers without abandoning them
 set hidden
 
-" Show last line
-set showmode
-set showcmd
-
-" Show status bar
-set laststatus=2 " Always show
-
 " Add a bit extra margin to the left beside line number
 set foldcolumn=1
 
@@ -193,6 +183,39 @@ set history=1000
 " Change vim split to full block
 " set fillchars+=vert:█
 
+"""""""""""""
+""" STATUS
+"""""""""""""
+
+" Show status bar
+set laststatus=2 " Always show
+set showmode
+set showcmd
+
+" Git branch function
+function! GitBranch()
+  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
+
+function! StatuslineGit()
+  let l:branchname = GitBranch()
+  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
+endfunction
+
+" Statusline
+set statusline=
+set statusline+=%#PmenuSel#
+set statusline+=%{StatuslineGit()}
+set statusline+=%#LineNr#
+set statusline+=\ %F
+set statusline+=%=
+set statusline+=%#CursorColumn#
+set statusline+=\ %y
+set statusline+=\ %p%%
+set statusline+=\ %l:%L
+set statusline+=\ 
+
+
 """""""""""
 """ MAP
 """""""""""
@@ -201,11 +224,16 @@ set history=1000
 " nnoremap -> map normal
 " inoremap -> map insert
 
-map <F5> :setlocal spell! spelllang=en_us<CR>
+" Function keys
+set pastetoggle=<F2>
+map <F3> :setlocal spell! spelllang=en_us<CR>
 
+" Disable keys
 noremap Q <nop>
+noremap K <nop>
 
-nnoremap <C-h> <C-w>h " Fast moving
+" Fast moving
+nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
@@ -235,10 +263,10 @@ autocmd BufNewFile,BufRead *.md nnoremap j gj
 autocmd BufNewFile,BufRead *.md nnoremap k gk
 
 " Templates
-if has("autocmd")
-  augroup templates
-    autocmd BufNewFile *.sh 0r ~/.vim/templates/skeleton.sh
-    autocmd BufNewFile 20*.md 0r ~/.vim/templates/skeleton.md
-  augroup END
-endif
+" if has("autocmd")
+"   augroup templates
+"     autocmd BufNewFile *.sh 0r ~/.vim/templates/skeleton.sh
+"     autocmd BufNewFile 20*.md 0r ~/.vim/templates/skeleton.md
+"   augroup END
+" endif
 
