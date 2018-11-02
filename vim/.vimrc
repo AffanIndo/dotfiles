@@ -44,8 +44,6 @@ nnoremap <leader>v <C-w>v<C-w>l " Split then move to the split
 nnoremap <leader>n :bnext<cr> " Next buffer
 nnoremap <leader>N :bprev<cr> " Previous buffer
 
-" List all buffers
-
 """"""""""""""
 """ PLUGIN
 """"""""""""""
