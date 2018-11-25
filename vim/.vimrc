@@ -25,9 +25,9 @@ set nowrap
 " Encoding
 set encoding=utf-8
 
-" Plugins essential
-syntax on
-filetype plugin indent on
+" Plugin essential, vim-plug automatically execute this
+" syntax on
+" filetype plugin indent on
 
 """"""""""""""
 """ LEADER
@@ -43,29 +43,32 @@ nnoremap <leader>w :w<cr>
 nnoremap <leader>v <C-w>v<C-w>l " Split then move to the split
 nnoremap <leader>n :bnext<cr> " Next buffer
 nnoremap <leader>N :bprev<cr> " Previous buffer
+noremap <leader><space> :nohlsearch<cr> " Clear search highlight
 
-""""""""""""""
-""" PLUGIN
-""""""""""""""
-"
-" List of plugins:
-"  0. pathogen
-"  1. ctrlp
-"  2. auto-pairs
-"  3. nerdcommenter
-"  4. nerdtree
-"  5. surround
-"  6. repeat
-"  7. fugitive
-"  8. supertab
-"  9. goyo
-" 10. emmet
-" 11. vim-javascript
-" 12. vim-json
+"""""""""""""""
+"""" PLUGIN
+"""""""""""""""
 
-" Pathogen
-call pathogen#infect()
-call pathogen#helptags()
+" Install vim-plug if it doesn't installed yet
+if empty(glob("~/.vim/autoload/plug.vim"))
+  execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+endif
+
+" Install plugins
+call plug#begin('~/.vim/plugged')
+Plug 'altercation/vim-colors-solarized'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-fugitive'
+Plug 'ervandew/supertab'
+Plug 'junegunn/goyo.vim'
+Plug 'mattn/emmet-vim', { 'for': 'html' }
+Plug 'ap/vim-css-color', { 'for': 'css' }
+call plug#end()
 
 " CtrlP
 let g:ctrlp_max_height = 10
@@ -75,10 +78,23 @@ let g:ctrlp_max_files = 1000 " Set no max file limit
 let g:ctrlp_show_hidden = 1
 nnoremap <leader>b :CtrlPBuffer<cr>
 
-" Nerdcommenter
+let g:ctrlp_buffer_func = {
+    \ 'enter': 'StatuslineHide',
+    \ 'exit':  'StatuslineUnhide',
+    \ }
+
+function! StatuslineHide()
+    set laststatus=0
+endfunction
+
+function! StatuslineUnhide()
+    set laststatus=2
+endfunction
+
+" NerdCommenter
 let NERDSpaceDelims=1
 
-" Nerdtree
+" NerdTree
 let g:NERDTreeWinSize=30
 let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\.pyc$', '__pycache__', '\.git']
@@ -134,7 +150,7 @@ set softtabstop=4
 set gdefault
 
 " Search
-set nohlsearch " Disable highlight
+set hlsearch
 set ignorecase
 set smartcase
 set incsearch " Searches for strings as you type
@@ -204,10 +220,10 @@ endfunction
 set statusline=
 set statusline+=%#PmenuSel#
 set statusline+=%{StatuslineGit()}
-set statusline+=%#LineNr#
+set statusline+=%#CursorColumn#
 set statusline+=\ %F
 set statusline+=%=
-set statusline+=%#CursorColumn#
+set statusline+=%#LineNr#
 set statusline+=\ %y
 set statusline+=\ %p%%
 set statusline+=\ %l:%L
@@ -240,19 +256,6 @@ nnoremap <C-l> <C-w>l
 """ MISC
 """"""""""""
 
-" Ignore files that vim doesn't use
-set wildignore+=.git,.hg,.svn
-set wildignore+=.steam,.cache
-set wildignore+=*.aux,*.out,*.toc
-set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest,*.rbc,*.class
-set wildignore+=*.ai,*.bmp,*.gif,*.ico,*.jpg,*.jpeg,*.png,*.psd,*.webp
-set wildignore+=*.avi,*.divx,*.mp4,*.webm,*.mov,*.m2ts,*.mkv,*.vob,*.mpg,*.mpeg
-set wildignore+=*.mp3,*.oga,*.ogg,*.wav,*.flac
-set wildignore+=*.eot,*.otf,*.ttf,*.woff
-set wildignore+=*.doc,*.pdf,*.cbr,*.cbz
-set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz,*.kgb
-set wildignore+=*.swp,.lock,.DS_Store,._*
-
 " Markdown support
 autocmd BufNewFile,BufRead *.md set wrap
 autocmd BufNewFile,BufRead *.md set linebreak breakindent
@@ -261,10 +264,6 @@ autocmd BufNewFile,BufRead *.md nnoremap j gj
 autocmd BufNewFile,BufRead *.md nnoremap k gk
 
 " Templates
-" if has("autocmd")
-"   augroup templates
-"     autocmd BufNewFile *.sh 0r ~/.vim/templates/skeleton.sh
-"     autocmd BufNewFile 20*.md 0r ~/.vim/templates/skeleton.md
-"   augroup END
-" endif
+" autocmd BufNewFile *.sh 0r ~/.vim/templates/skeleton.sh
+" autocmd BufNewFile 20*.md 0r ~/.vim/templates/skeleton.md
 
