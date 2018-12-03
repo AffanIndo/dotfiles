@@ -38,7 +38,7 @@ set encoding=utf-8
 let mapleader=","
 
 " General leader map
-nnoremap <leader>q :q!<cr>
+" nnoremap <leader>q :q!<cr>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>v <C-w>v<C-w>l " Split then move to the split
 nnoremap <leader>n :bnext<cr> " Next buffer
@@ -256,10 +256,26 @@ nnoremap <C-l> <C-w>l
 """ MISC
 """"""""""""
 
+" Enable project specific .vimrc files
+set exrc
+
+" Folding style
+highlight Folded cterm=bold " no underline
+function! MyFoldText()
+    let line = getline(v:foldstart)
+    let nucolwidth = &fdc + &number * &numberwidth
+    let windowwidth = winwidth(0) - nucolwidth - 5 " Change this number into flair character length
+    let foldedlinecount = v:foldend - v:foldstart
+    let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
+        let fillcharcount = windowwidth - strdisplaywidth(line) - len(foldedlinecount)
+    return line . ' ---' . repeat(" ",fillcharcount) . foldedlinecount . '' . ' '
+endfunction
+set foldtext=MyFoldText()
+
 " Markdown support
 autocmd BufNewFile,BufRead *.md set wrap
 autocmd BufNewFile,BufRead *.md set linebreak breakindent
-autocmd BufNewFile,BufRead *.md Goyo 80
+" autocmd BufNewFile,BufRead *.md Goyo 80
 autocmd BufNewFile,BufRead *.md nnoremap j gj
 autocmd BufNewFile,BufRead *.md nnoremap k gk
 
