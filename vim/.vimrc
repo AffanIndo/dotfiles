@@ -32,9 +32,8 @@ set encoding=utf-8
 """"""""""""""
 """ LEADER
 """"""""""""""
-"
-" You should set leader before loading all plugins
 
+" Set leader before loading all plugins
 let mapleader=","
 
 " General leader map
@@ -56,7 +55,7 @@ endif
 
 " Install plugins
 call plug#begin('~/.vim/plugged')
-Plug 'altercation/vim-colors-solarized'
+Plug 'altercation/vim-colors-solarized' 
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdcommenter'
@@ -136,7 +135,7 @@ set relativenumber
 " Show row and column ruler information
 set ruler
 
-" Backspace
+" Fix default backspace behavior
 set backspace=indent,eol,start
 
 " Tab and indent
@@ -256,7 +255,10 @@ nnoremap <C-l> <C-w>l
 """ MISC
 """"""""""""
 
-" Enable project specific .vimrc files
+" Automatic sourcing .vimrc file if saved
+autocmd! bufwritepost .vimrc source %
+
+" Enable project specific .vimrc file
 set exrc
 
 " Folding style

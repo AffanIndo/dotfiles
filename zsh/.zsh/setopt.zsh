@@ -21,5 +21,5 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*' # C
 zstyle ':completion:*' menu select
 
 # Correction
-unsetopt correct_all # spelling correction for arguments
-setopt correct # spelling correction for commands
+unsetopt CORRECT_ALL # spelling correction for arguments
+setopt CORRECT # spelling correction for commands
