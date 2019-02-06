@@ -53,4 +53,5 @@ alias incognito='export HISTFILE=/dev/null' # Incognito mode
 alias server='python -m http.server' # Python simple server `$ server 9999`
 alias cls='clear' # Easy clear screen
 alias upgrade='sudo apt-get update && sudo apt-get dist-upgrade --yes'
+alias tm='~/.zsh/start-tmux.sh'
 

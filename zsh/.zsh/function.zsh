@@ -48,3 +48,4 @@ function frequent_command2 () {
 bitrate () {
     mediainfo "$1" | grep 'Bit rate  '
 }
+

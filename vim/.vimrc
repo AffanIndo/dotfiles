@@ -50,7 +50,7 @@ noremap <leader><space> :nohlsearch<cr> " Clear search highlight
 
 " Install vim-plug if it doesn't installed yet
 if empty(glob("~/.vim/autoload/plug.vim"))
-  execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+" execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
 endif
 
 " Install plugins
@@ -79,7 +79,7 @@ nnoremap <leader>b :CtrlPBuffer<cr>
 
 let g:ctrlp_buffer_func = {
     \ 'enter': 'StatuslineHide',
-    \ 'exit':  'StatuslineUnhide',
+    \ 'exit': 'StatuslineUnhide',
     \ }
 
 function! StatuslineHide()
@@ -109,7 +109,7 @@ let g:user_emmet_leader_key='<C-e>'
 """ COLOR
 """""""""""""
 
-set background=dark
+set background=light
 colorscheme solarized
 set cursorline
 
@@ -158,10 +158,10 @@ set incsearch " Searches for strings as you type
 set showmatch
 
 " No annoying sound on errors
- set noerrorbells
- set novisualbell
- set t_vb=
- set tm=500
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
 
 " Keep n lines off the edges of the screen when scrolling
 set scrolloff=4
@@ -205,28 +205,29 @@ set laststatus=2 " Always show
 set showmode
 set showcmd
 
-" Git branch function
-function! GitBranch()
-  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
-endfunction
+" " This part cause bug
+" " Git branch function
+" function! GitBranch()
+"     return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+" endfunction
 
-function! StatuslineGit()
-  let l:branchname = GitBranch()
-  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
-endfunction
+" function! StatuslineGit()
+"     let l:branchname = GitBranch()
+"     return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
+" endfunction
 
-" Statusline
-set statusline=
-set statusline+=%#PmenuSel#
-set statusline+=%{StatuslineGit()}
-set statusline+=%#CursorColumn#
-set statusline+=\ %F
-set statusline+=%=
-set statusline+=%#LineNr#
-set statusline+=\ %y
-set statusline+=\ %p%%
-set statusline+=\ %l:%L
-set statusline+=\ 
+" " Statusline
+" set statusline=
+" set statusline+=%#PmenuSel#
+" set statusline+=%{StatuslineGit()}
+" set statusline+=%#CursorColumn#
+" set statusline+=\ %F
+" set statusline+=%=
+" set statusline+=%#LineNr#
+" set statusline+=\ %y
+" set statusline+=\ %p%%
+" set statusline+=\ %l:%L
+" set statusline+=\ 
 
 
 """""""""""
@@ -260,6 +261,9 @@ autocmd! bufwritepost .vimrc source %
 
 " Enable project specific .vimrc file
 set exrc
+" Add these into those project speccific .vimrc file
+" au bufWinLeave filename mkview
+" au bufWinEnter filename silent loadview
 
 " Folding style
 highlight Folded cterm=bold " no underline
