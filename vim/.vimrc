@@ -50,12 +50,12 @@ noremap <leader><space> :nohlsearch<cr> " Clear search highlight
 
 " Install vim-plug if it doesn't installed yet
 if empty(glob("~/.vim/autoload/plug.vim"))
-" execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+    execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
 endif
 
 " Install plugins
 call plug#begin('~/.vim/plugged')
-Plug 'altercation/vim-colors-solarized' 
+Plug 'altercation/vim-colors-solarized'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdcommenter'
