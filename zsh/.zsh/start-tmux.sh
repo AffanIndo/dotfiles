@@ -1,5 +1,5 @@
 #!/bin/sh
-# stolen from https://gist.github.com/todgru/6224848
+# Source: https://gist.github.com/todgru/6224848
 
 session="default"
 

@@ -31,9 +31,8 @@ alias music='mplayer -playlist <(find "$PWD" -type f)'
 alias yd='youtube-dl'
 alias py='python3'
 alias doctest='python3 -m doctest -v'
-alias h='history'
-alias hg='history | grep '
-
+alias h='history 1' # In zsh `history` lists only 15 most recent history entries, use `history 1` instead
+alias hg='history 1 | grep '
 
 # NPM lists
 alias nll='npm list --depth=0'

@@ -3,4 +3,4 @@
 
 # New
 autoload -U colors && colors
-export PS1="%{$fg[cyan]%}%~ %{$reset_color%}% $ "
+export PS1=" %{$fg[cyan]%}%~ %{$reset_color%}% $ "
