@@ -37,7 +37,7 @@ set encoding=utf-8
 let mapleader=","
 
 " General leader map
-" nnoremap <leader>q :q!<cr>
+nnoremap <leader>q :q<cr> " Use :q instead of :q! to prevent accidentally closing vim
 nnoremap <leader>w :w<cr>
 nnoremap <leader>v <C-w>v<C-w>l " Split then move to the split
 nnoremap <leader>n :bnext<cr> " Next buffer
@@ -67,6 +67,8 @@ Plug 'ervandew/supertab'
 Plug 'junegunn/goyo.vim'
 Plug 'mattn/emmet-vim', { 'for': 'html' }
 Plug 'ap/vim-css-color', { 'for': 'css' }
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 " CtrlP
@@ -104,6 +106,14 @@ nnoremap <leader>f :NERDTreeToggle<cr>
 
 " Emmet
 let g:user_emmet_leader_key='<C-e>'
+
+" Airline
+let g:airline_theme='solarized'
+let g:airline_extensions = ['tabline']
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '| '
+let g:airline#extensions#tabline#buffer_min_count =2 " Show tabline if there are more than 1 buffer opened
 
 """""""""""""
 """ COLOR
@@ -202,33 +212,8 @@ set history=1000
 
 " Show status bar
 set laststatus=2 " Always show
-set showmode
+set noshowmode " Show -- INSERT --, -- VISUAL BLOCK --, etc
 set showcmd
-
-" " This part cause bug
-" " Git branch function
-" function! GitBranch()
-"     return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
-" endfunction
-
-" function! StatuslineGit()
-"     let l:branchname = GitBranch()
-"     return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
-" endfunction
-
-" " Statusline
-" set statusline=
-" set statusline+=%#PmenuSel#
-" set statusline+=%{StatuslineGit()}
-" set statusline+=%#CursorColumn#
-" set statusline+=\ %F
-" set statusline+=%=
-" set statusline+=%#LineNr#
-" set statusline+=\ %y
-" set statusline+=\ %p%%
-" set statusline+=\ %l:%L
-" set statusline+=\ 
-
 
 """""""""""
 """ MAP
@@ -261,7 +246,7 @@ autocmd! bufwritepost .vimrc source %
 
 " Enable project specific .vimrc file
 set exrc
-" Add these into those project speccific .vimrc file
+" Add these into those project's .vimrc file
 " au bufWinLeave filename mkview
 " au bufWinEnter filename silent loadview
 
@@ -287,5 +272,5 @@ autocmd BufNewFile,BufRead *.md nnoremap k gk
 
 " Templates
 " autocmd BufNewFile *.sh 0r ~/.vim/templates/skeleton.sh
-" autocmd BufNewFile 20*.md 0r ~/.vim/templates/skeleton.md
+" autocmd BufNewFile *.md 0r ~/.vim/templates/skeleton.md
 

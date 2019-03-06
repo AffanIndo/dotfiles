@@ -1,11 +1,14 @@
 # Source: https://github.com/zanshin/dotfiles/blob/master/zsh/setopt.zsh
 
 # History
+# Pick one:
+# APPEND_HISTORY writes history to file when zsh exits
+# INC_APPEND_HISTORY writes history after they start executing
+# INC_APPEND_HISTORY_TIME writes history after they complete executing
+# SHARE_HISTORY writes history after they start executing (like INC_APPEND_HISTORY) and also rereads the history file after every command (to import history other sessions have written)
 HISTFILE=~/.zhistory
 HISTSIZE=12000
 SAVEHIST=10000
-setopt APPEND_HISTORY # Append history list to the history file, rather than replace it
-setopt INC_APPEND_HISTORY # Add commands as they are typed, don't wait until shell exit
 setopt SHARE_HISTORY
 setopt HIST_EXPIRE_DUPS_FIRST # When trimming history, lose oldest duplicates first
 setopt HIST_IGNORE_SPACE # Remove command line from history list when first character on the line is a space
