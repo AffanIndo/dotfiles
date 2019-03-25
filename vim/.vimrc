@@ -99,7 +99,7 @@ let NERDSpaceDelims=1
 let g:NERDTreeWinSize=30
 let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\.pyc$', '__pycache__', '\.git']
-let NERDTreeQuitOnOpen = 0
+let NERDTreeQuitOnOpen = 1
 let NERDTreeMinimalUI=1
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif " Close vim if there is only nerdtree
 nnoremap <leader>f :NERDTreeToggle<cr>
@@ -114,6 +114,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '| '
 let g:airline#extensions#tabline#buffer_min_count =2 " Show tabline if there are more than 1 buffer opened
+let g:airline#extensions#tabline#formatter = 'unique_tail' " Show file name only in tabline
 
 """""""""""""
 """ COLOR
@@ -247,8 +248,8 @@ autocmd! bufwritepost .vimrc source %
 " Enable project specific .vimrc file
 set exrc
 " Add these into those project's .vimrc file
-" au bufWinLeave filename mkview
-" au bufWinEnter filename silent loadview
+" au bufWinLeave file_name mkview
+" au bufWinEnter file_name silent loadview
 
 " Folding style
 highlight Folded cterm=bold " no underline
@@ -264,9 +265,9 @@ endfunction
 set foldtext=MyFoldText()
 
 " Markdown support
+" autocmd BufNewFile,BufRead *.md Goyo 80
 autocmd BufNewFile,BufRead *.md set wrap
 autocmd BufNewFile,BufRead *.md set linebreak breakindent
-" autocmd BufNewFile,BufRead *.md Goyo 80
 autocmd BufNewFile,BufRead *.md nnoremap j gj
 autocmd BufNewFile,BufRead *.md nnoremap k gk
 
