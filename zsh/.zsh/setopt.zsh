@@ -22,6 +22,7 @@ bindkey "$key[Down]" down-line-or-search
 
 # Tab completion
 setopt MENU_COMPLETE
+setopt GLOBDOTS # Autocomplete hidden files
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*' # Case insensitive, and autocomplete partial matches
 zstyle ':completion:*' menu select
 
