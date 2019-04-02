@@ -75,7 +75,7 @@ call plug#end()
 let g:ctrlp_max_height = 10
 let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git'
 let g:ctrlp_working_path_mode = 'ar' " CtrlP scans through .git project
-let g:ctrlp_max_files = 1000 " Set no max file limit
+let g:ctrlp_max_files = 1000 " Set max file limit
 let g:ctrlp_show_hidden = 1
 nnoremap <leader>b :CtrlPBuffer<cr>
 
@@ -247,12 +247,6 @@ nnoremap <C-l> <C-w>l
 " Automatic sourcing .vimrc file if saved
 autocmd! bufwritepost .vimrc source %
 
-" Enable project specific .vimrc file
-set exrc
-" Add these into those project's .vimrc file
-" au bufWinLeave file_name mkview
-" au bufWinEnter file_name silent loadview
-
 " Folding style
 highlight Folded cterm=bold " no underline
 function! MyFoldText()
@@ -266,12 +260,22 @@ function! MyFoldText()
 endfunction
 set foldtext=MyFoldText()
 
-" Markdown support
-" autocmd BufNewFile,BufRead *.md Goyo 80
-autocmd BufNewFile,BufRead *.md set wrap
-autocmd BufNewFile,BufRead *.md set linebreak breakindent
-autocmd BufNewFile,BufRead *.md nnoremap j gj
-autocmd BufNewFile,BufRead *.md nnoremap k gk
+" Auto Save Folds, silent! to suppress errors
+augroup AutoSaveFolds
+    autocmd!
+    autocmd BufWinLeave * silent! mkview
+    autocmd BufWinEnter * silent! loadview
+augroup END
+
+
+" Markdown configuration
+augroup MarkdownConfiguration
+    " autocmd BufNewFile,BufRead *.md Goyo 80
+    autocmd BufNewFile,BufRead *.md set wrap
+    autocmd BufNewFile,BufRead *.md set linebreak breakindent
+    autocmd BufNewFile,BufRead *.md nnoremap j gj
+    autocmd BufNewFile,BufRead *.md nnoremap k gk
+augroup END
 
 " Templates
 " autocmd BufNewFile *.sh 0r ~/.vim/templates/skeleton.sh
