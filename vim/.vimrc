@@ -53,9 +53,10 @@ if empty(glob("~/.vim/autoload/plug.vim"))
     execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
 endif
 
-" Install plugins
+" Install plugins, use :PlugInstall, :PlugUpdate, :PlugClean, :PlugUpgrade, or :PlugStatus
 call plug#begin('~/.vim/plugged')
-Plug 'altercation/vim-colors-solarized'
+" Plug 'altercation/vim-colors-solarized'
+Plug 'arcticicestudio/nord-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdcommenter'
@@ -65,7 +66,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
 Plug 'ervandew/supertab'
 Plug 'junegunn/goyo.vim'
-Plug 'mattn/emmet-vim', { 'for': 'html' }
+Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
 Plug 'ap/vim-css-color', { 'for': 'css' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -110,7 +111,7 @@ nnoremap <leader>f :NERDTreeToggle<cr>
 let g:user_emmet_leader_key='<C-e>'
 
 " Airline
-let g:airline_theme='solarized'
+let g:airline_theme='nord'
 let g:airline_extensions = ['tabline']
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
@@ -122,8 +123,8 @@ let g:airline#extensions#tabline#formatter = 'unique_tail' " Show file name only
 """ COLOR
 """""""""""""
 
-set background=light
-colorscheme solarized
+set background=dark
+colorscheme nord
 set cursorline
 
 """""""""""""""
@@ -266,7 +267,6 @@ augroup AutoSaveFolds
     autocmd BufWinLeave * silent! mkview
     autocmd BufWinEnter * silent! loadview
 augroup END
-
 
 " Markdown configuration
 augroup MarkdownConfiguration
