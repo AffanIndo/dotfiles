@@ -25,7 +25,11 @@ setopt MENU_COMPLETE
 setopt GLOBDOTS # Autocomplete hidden files
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*' # Case insensitive, and autocomplete partial matches
 zstyle ':completion:*' menu select
+bindkey '^[[Z' reverse-menu-complete
 
 # Correction
 unsetopt CORRECT_ALL # spelling correction for arguments
 setopt CORRECT # spelling correction for commands
+
+# Auto change directory
+setopt AUTO_CD

@@ -15,7 +15,8 @@ alias cdw='cd /media/affan'
 
 # Git stuff
 alias ga='git add'
-alias gc='git commit -m'
+alias gc='git commit'
+alias gcm='git commit -m'
 alias gs='git status'
 alias gd='git diff'
 alias gf='git fetch'
@@ -24,6 +25,7 @@ alias gr='git rebase'
 alias gp='git push'
 alias gu='git unstage'
 alias gco='git checkout'
+alias gb='git branch'
 
 # Mplayer play all music recursively
 alias music='mplayer -playlist <(find "$PWD" -type f)'
@@ -36,7 +38,7 @@ alias server='python3 -m http.server' # Python simple server `$ server 9999`
 alias h='history 1' # In zsh `history` lists only 15 most recent history entries, use `history 1` instead
 alias hg='history 1 | grep '
 
-# NPM lists
+# NPM list
 alias nll='npm list --depth=0'
 alias nlg='npm list -g --depth=0'
 

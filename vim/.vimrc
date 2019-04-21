@@ -55,12 +55,12 @@ endif
 
 " Install plugins, use :PlugInstall, :PlugUpdate, :PlugClean, :PlugUpgrade, or :PlugStatus
 call plug#begin('~/.vim/plugged')
-" Plug 'altercation/vim-colors-solarized'
+Plug 'altercation/vim-colors-solarized'
 Plug 'arcticicestudio/nord-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle'  }
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
@@ -70,6 +70,8 @@ Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
 Plug 'ap/vim-css-color', { 'for': 'css' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'Yggdroot/indentLine', { 'on': 'IndentLinesToggle' }
+Plug 'w0rp/ale'
 call plug#end()
 
 " CtrlP
@@ -118,6 +120,26 @@ let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '| '
 let g:airline#extensions#tabline#buffer_min_count =2 " Show tabline if there are more than 1 buffer opened
 let g:airline#extensions#tabline#formatter = 'unique_tail' " Show file name only in tabline
+
+" IndentLine
+let g:indentLine_char = '▏'
+let g:indentLine_enabled = 0 " Disable by defult
+map <F4> :IndentLinesToggle<CR>
+
+" Ale
+let g:ale_c_gcc_options="-Wall -ansi"
+let g:ale_lint_delay = 500
+let g:ale_sign_column_always = 1 " Always show gutter
+" let g:ale_lint_on_text_changed = 'never' " Don't auto lint, lint on save instead
+let g:ale_lint_on_enter = 0
+let g:ale_linters = {
+\   'c': ['gcc'],
+\}
+let g:ale_linters_explicit = 1 " Only run linters named in ale_linters settings
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
 
 """""""""""""
 """ COLOR
@@ -230,6 +252,7 @@ set showcmd
 " Function keys
 set pastetoggle=<F2>
 map <F3> :setlocal spell! spelllang=en_us<CR>
+" <F4> is already used to toggle IndentLine plugin
 
 " Disable keys
 noremap Q <nop>
@@ -261,7 +284,7 @@ function! MyFoldText()
 endfunction
 set foldtext=MyFoldText()
 
-" Auto Save Folds, silent! to suppress errors
+" Auto save folds, silent! to suppress errors
 augroup AutoSaveFolds
     autocmd!
     autocmd BufWinLeave * silent! mkview
