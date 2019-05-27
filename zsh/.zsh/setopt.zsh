@@ -33,3 +33,10 @@ setopt CORRECT # spelling correction for commands
 
 # Auto change directory
 setopt AUTO_CD
+
+# Auto quote pasted url
+autoload -Uz bracketed-paste-magic
+zle -N bracketed-paste bracketed-paste-magic
+autoload -Uz url-quote-magic
+zle -N self-insert url-quote-magic
+

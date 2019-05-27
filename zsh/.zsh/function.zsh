@@ -20,7 +20,6 @@ extract () {
    fi
 }
 
-
 # Mkdir recursively then cd
 mkcd () { NAME=$1; mkdir -p "$NAME"; cd "$NAME"; }
 
@@ -38,10 +37,5 @@ function frequent_command () {
 
 function frequent_command2 () {
     history | tr -s ' ' | cut -d ' ' -f3 | sort | uniq -c | sort -n | tail | perl -lane 'print $F[1], "\t", $F[0], " ", "▄" x ($F[0] / 12)'
-}
-
-# Check audio bitrate (require mediainfo)
-bitrate () {
-    mediainfo "$1" | grep 'Bit rate  '
 }
 

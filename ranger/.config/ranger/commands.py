@@ -57,7 +57,7 @@ class my_edit(Command):
         # content of the current directory.
         return self._tab_directory_content()
 
-# My additional command
+# My additional commands
 class terminal(Command):
     """:terminal
 

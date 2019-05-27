@@ -80,6 +80,7 @@ let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git'
 let g:ctrlp_working_path_mode = 'ar' " CtrlP scans through .git project
 let g:ctrlp_max_files = 1000 " Set max file limit
 let g:ctrlp_show_hidden = 1
+let g:ctrlp_cache_dir = $HOME.'/.vim/ctrlp_cache'
 nnoremap <leader>b :CtrlPBuffer<cr>
 
 let g:ctrlp_buffer_func = {
@@ -103,9 +104,11 @@ let g:NERDTreeWinSize=30
 let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\.pyc$', '__pycache__', '\.git']
 let NERDTreeQuitOnOpen = 1
-let NERDTreeMinimalUI=1
-let NERDTreeMapUpdir='h'
-let NERDTreeMapChangeRoot='l'
+let NERDTreeMinimalUI = 1
+let NERDTreeMapUpdir = 'h'
+let NERDTreeMapChangeRoot = 'l'
+let NERDTreeBookmarksFile = $HOME.'/.vim/.NERDTreeBookmarks'
+
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif " Close vim if there is only nerdtree
 nnoremap <leader>f :NERDTreeToggle<cr>
 
@@ -140,10 +143,14 @@ let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
-
 """""""""""""
 """ COLOR
 """""""""""""
+
+augroup NordOverrides
+    autocmd!
+    autocmd ColorScheme nord highlight Comment ctermfg=61
+augroup END
 
 set background=dark
 colorscheme nord
@@ -268,6 +275,9 @@ nnoremap <C-l> <C-w>l
 """ MISC
 """"""""""""
 
+" Change .viminfo location
+set viminfo+=n~/.vim/.viminfo
+
 " Automatic sourcing .vimrc file if saved
 autocmd! bufwritepost .vimrc source %
 
@@ -284,12 +294,11 @@ function! MyFoldText()
 endfunction
 set foldtext=MyFoldText()
 
-" Auto save folds, silent! to suppress errors
-augroup AutoSaveFolds
-    autocmd!
-    autocmd BufWinLeave * silent! mkview
-    autocmd BufWinEnter * silent! loadview
-augroup END
+" Enable project specific .vimrc file
+set exrc
+" Add these into those project's .vimrc file
+" au bufWinLeave file_name mkview
+" au bufWinEnter file_name silent loadview
 
 " Markdown configuration
 augroup MarkdownConfiguration

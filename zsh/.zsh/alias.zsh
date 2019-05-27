@@ -9,8 +9,7 @@ alias cdblog='cd ~/Programming/git/AffanIndo.github.io/_posts'
 alias cddot='cd ~/dotfiles'
 alias cdgit='cd ~/Programming/git'
 alias cdmusic='cd /media/affan/Music'
-alias cdproject='cd ~/Programming/project/web-nnm-12'
-alias cdpython='cd ~/Programming/git/python-script'
+alias cdpy='cd ~/Programming/git/python-script'
 alias cdw='cd /media/affan'
 
 # Git stuff
