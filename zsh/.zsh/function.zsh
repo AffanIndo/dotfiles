@@ -21,7 +21,10 @@ extract () {
 }
 
 # Mkdir recursively then cd
-mkcd () { NAME=$1; mkdir -p "$NAME"; cd "$NAME"; }
+mkcd () {
+    mkdir -p "$*"
+    cd "$*"
+}
 
 # List apt history
 apt-history () {
