@@ -5,8 +5,8 @@
 " Maintainer: AffanIndo
 "
 " Sections:
-"    -> FIRST THING FIRST
 "    -> BASIC INFO
+"    -> FIRST THING FIRST
 "    -> LEADER
 "    -> PLUGIN
 "    -> COLOR
@@ -19,15 +19,15 @@
 """ FIRST THING FIRST
 """""""""""""""""""""""""
 
+" Plugin essential, vim-plug automatically execute this
+" syntax on
+" filetype plugin indent on
+
 " Don't wrap text
 set nowrap
 
 " Encoding
 set encoding=utf-8
-
-" Plugin essential, vim-plug automatically execute this
-" syntax on
-" filetype plugin indent on
 
 """"""""""""""
 """ LEADER
@@ -41,7 +41,7 @@ nnoremap <leader>q :q<cr> " Use :q instead of :q! to prevent accidentally closin
 nnoremap <leader>w :w<cr>
 nnoremap <leader>v <C-w>v<C-w>l " Split then move to the split
 nnoremap <leader>n :bnext<cr> " Next buffer
-nnoremap <leader>N :bprev<cr> " Previous buffer
+nnoremap <leader>p :bprev<cr> " Previous buffer
 noremap <leader><space> :nohlsearch<cr> " Clear search highlight
 
 """""""""""""""
@@ -57,58 +57,34 @@ endif
 call plug#begin('~/.vim/plugged')
 Plug 'altercation/vim-colors-solarized'
 Plug 'arcticicestudio/nord-vim'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle'  }
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
 Plug 'ervandew/supertab'
 Plug 'junegunn/goyo.vim'
-Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
-Plug 'ap/vim-css-color', { 'for': 'css' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Yggdroot/indentLine', { 'on': 'IndentLinesToggle' }
-Plug 'w0rp/ale'
+Plug 'w0rp/ale', { 'for': 'c' }
+Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
+Plug 'ap/vim-css-color', { 'for': 'css' }
 call plug#end()
-
-" CtrlP
-let g:ctrlp_max_height = 10
-let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git'
-let g:ctrlp_working_path_mode = 'ar' " CtrlP scans through .git project
-let g:ctrlp_max_files = 1000 " Set max file limit
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_cache_dir = $HOME.'/.vim/ctrlp_cache'
-nnoremap <leader>b :CtrlPBuffer<cr>
-
-let g:ctrlp_buffer_func = {
-    \ 'enter': 'StatuslineHide',
-    \ 'exit': 'StatuslineUnhide',
-    \ }
-
-function! StatuslineHide()
-    set laststatus=0
-endfunction
-
-function! StatuslineUnhide()
-    set laststatus=2
-endfunction
 
 " NerdCommenter
 let NERDSpaceDelims=1
 
 " NerdTree
-let g:NERDTreeWinSize=30
+let NERDTreeWinSize=30
 let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\.pyc$', '__pycache__', '\.git']
 let NERDTreeQuitOnOpen = 1
 let NERDTreeMinimalUI = 1
+let NERDTreeBookmarksFile = $HOME.'/.vim/.NERDTreeBookmarks'
 let NERDTreeMapUpdir = 'h'
 let NERDTreeMapChangeRoot = 'l'
-let NERDTreeBookmarksFile = $HOME.'/.vim/.NERDTreeBookmarks'
-
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif " Close vim if there is only nerdtree
 nnoremap <leader>f :NERDTreeToggle<cr>
 
@@ -116,7 +92,7 @@ nnoremap <leader>f :NERDTreeToggle<cr>
 let g:user_emmet_leader_key='<C-e>'
 
 " Airline
-let g:airline_theme='nord'
+let g:airline_theme='solarized'
 let g:airline_extensions = ['tabline']
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
@@ -138,7 +114,7 @@ let g:ale_lint_on_enter = 0
 let g:ale_linters = {
 \   'c': ['gcc'],
 \}
-let g:ale_linters_explicit = 1 " Only run linters named in ale_linters settings
+let g:ale_linters_explicit = 1 " Only run linters named in ale_linters setting
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
@@ -147,13 +123,8 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 """ COLOR
 """""""""""""
 
-augroup NordOverrides
-    autocmd!
-    autocmd ColorScheme nord highlight Comment ctermfg=61
-augroup END
-
 set background=dark
-colorscheme nord
+colorscheme solarized
 set cursorline
 
 """""""""""""""
@@ -184,8 +155,8 @@ set backspace=indent,eol,start
 " Tab and indent
 set autoindent
 set expandtab
-set shiftwidth=4
 set smarttab
+set shiftwidth=4
 set softtabstop=4
 
 " Use /g flag on :s substitutions by default
@@ -200,23 +171,12 @@ set incsearch " Searches for strings as you type
 " Highlight matching brace
 set showmatch
 
-" No annoying sound on errors
-set noerrorbells
-set novisualbell
-set t_vb=
-set tm=500
-
 " Keep n lines off the edges of the screen when scrolling
 set scrolloff=4
 
 " Reverse the split behavior
 set splitbelow
 set splitright
-
-" Lazy file name tab completion
-set wildmode=longest,list,full
-set wildmenu
-set wildignorecase
 
 " Allow vim to hide modified buffers without abandoning them
 set hidden
@@ -229,12 +189,6 @@ set lazyredraw
 
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
-
-" Number of undo levels
-set undolevels=1000
-
-" Set how many history vim has to remember
-set history=1000
 
 " Change vim split to full block
 " set fillchars+=vert:█
@@ -278,9 +232,6 @@ nnoremap <C-l> <C-w>l
 " Change .viminfo location
 set viminfo+=n~/.vim/.viminfo
 
-" Automatic sourcing .vimrc file if saved
-autocmd! bufwritepost .vimrc source %
-
 " Folding style
 highlight Folded cterm=bold " no underline
 function! MyFoldText()
@@ -308,8 +259,4 @@ augroup MarkdownConfiguration
     autocmd BufNewFile,BufRead *.md nnoremap j gj
     autocmd BufNewFile,BufRead *.md nnoremap k gk
 augroup END
-
-" Templates
-" autocmd BufNewFile *.sh 0r ~/.vim/templates/skeleton.sh
-" autocmd BufNewFile *.md 0r ~/.vim/templates/skeleton.md
 
