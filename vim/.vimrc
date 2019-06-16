@@ -232,6 +232,9 @@ nnoremap <C-l> <C-w>l
 " Change .viminfo location
 set viminfo+=n~/.vim/.viminfo
 
+" Keep the same column when doing G motion
+set nostartofline
+
 " Folding style
 highlight Folded cterm=bold " no underline
 function! MyFoldText()
