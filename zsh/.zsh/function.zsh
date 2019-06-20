@@ -10,35 +10,19 @@ extract () {
            *.tar)       tar xvf $1     ;;
            *.tbz2)      tar xvjf $1    ;;
            *.tgz)       tar xvzf $1    ;;
-           *.zip)       unzip $1   ;;
+           *.zip)       unzip $1       ;;
            *.Z)         uncompress $1  ;;
-           *.7z)        7z x $1    ;;
-           *)           echo "don't know how to extract '$1'..." ;;
+           *.7z)        7z x $1        ;;
+           *)           echo "can't extract '$1'..." ;;
        esac
    else
        echo "'$1' is not a valid file!"
    fi
 }
 
-# Mkdir recursively then cd
+# Mkdir recursively, then cd
 mkcd () {
     mkdir -p "$*"
     cd "$*"
-}
-
-# List apt history
-apt-history () {
-    (zcat $(ls -tr /var/log/apt/history.log*.gz); cat /var/log/apt/history.log) 2>/dev/null |
-    egrep '^(Start-Date:|Commandline:)' |
-    grep -v aptdaemon |
-    egrep '^Commandline:'
-}
-
-function frequent_command () {
-    history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a; }' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n10
-}
-
-function frequent_command2 () {
-    history | tr -s ' ' | cut -d ' ' -f3 | sort | uniq -c | sort -n | tail | perl -lane 'print $F[1], "\t", $F[0], " ", "▄" x ($F[0] / 12)'
 }
 
