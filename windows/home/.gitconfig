@@ -1,7 +1,0 @@
-[user]
-	name = AffanIndo
-	email = AffanIndo@users.noreply.github.com
-[core]
-	excludesfile = C:/Users/AFFAN/.gitignore_global
-[credential]
-	helper = store

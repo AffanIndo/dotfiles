@@ -6,28 +6,12 @@
 "
 " Sections:
 "    -> BASIC INFO
-"    -> FIRST THING FIRST
 "    -> LEADER
 "    -> PLUGIN
 "    -> COLOR
 "    -> GENERAL
-"    -> STATUS
 "    -> MAP
 "    -> MISC
-
-"""""""""""""""""""""""""
-""" FIRST THING FIRST
-"""""""""""""""""""""""""
-
-" Plugin essential, vim-plug automatically execute this
-" syntax on
-" filetype plugin indent on
-
-" Don't wrap text
-set nowrap
-
-" Encoding
-set encoding=utf-8
 
 """"""""""""""
 """ LEADER
@@ -37,9 +21,8 @@ set encoding=utf-8
 let mapleader=","
 
 " General leader map
-nnoremap <leader>q :q<cr> " Use :q instead of :q! to prevent accidentally closing vim
-nnoremap <leader>w :w<cr>
-nnoremap <leader>v <C-w>v<C-w>l " Split then move to the split
+nnoremap <leader>q :q<cr>
+nnoremap <leader>v <C-w>v<C-w>l " Split, then move to the split
 nnoremap <leader>n :bnext<cr> " Next buffer
 nnoremap <leader>p :bprev<cr> " Previous buffer
 noremap <leader><space> :nohlsearch<cr> " Clear search highlight
@@ -49,37 +32,43 @@ noremap <leader><space> :nohlsearch<cr> " Clear search highlight
 """""""""""""""
 
 " Install vim-plug if it doesn't installed yet
-if empty(glob("~/.vim/autoload/plug.vim"))
-    execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 " Install plugins, use :PlugInstall, :PlugUpdate, :PlugClean, :PlugUpgrade, or :PlugStatus
 call plug#begin('~/.vim/plugged')
-Plug 'altercation/vim-colors-solarized'
-Plug 'arcticicestudio/nord-vim'
-Plug 'jiangmiao/auto-pairs'
+Plug 'romainl/flattened'
+Plug 'tmsvg/pear-tree'
+Plug 'lifepillar/vim-mucomplete'
+Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-fugitive'
-Plug 'ervandew/supertab'
+Plug 'Yggdroot/indentLine', { 'for': 'html' }
 Plug 'junegunn/goyo.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'Yggdroot/indentLine', { 'on': 'IndentLinesToggle' }
-Plug 'w0rp/ale', { 'for': 'c' }
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
 Plug 'ap/vim-css-color', { 'for': 'css' }
+Plug 'w0rp/ale', { 'for': 'c' }
 call plug#end()
+
+" Pear Tree
+let g:pear_tree_repeatable_expand = 0
+
+" MUcomplete
+set completeopt+=menuone
+let g:mucomplete#chains = {
+    \ 'default' : ['path', 'keyn'],
+    \ 'vim'     : ['path', 'cmd', 'keyn']
+    \ }
 
 " NerdCommenter
 let NERDSpaceDelims=1
 
 " NerdTree
-let NERDTreeWinSize=30
 let NERDTreeShowHidden=1
-let NERDTreeIgnore = ['\.pyc$', '__pycache__', '\.git']
+let NERDTreeIgnore = ['.pyc$', 'node_modules', '\.git']
 let NERDTreeQuitOnOpen = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeBookmarksFile = $HOME.'/.vim/.NERDTreeBookmarks'
@@ -88,22 +77,11 @@ let NERDTreeMapChangeRoot = 'l'
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif " Close vim if there is only nerdtree
 nnoremap <leader>f :NERDTreeToggle<cr>
 
-" Emmet
-let g:user_emmet_leader_key='<C-e>'
-
-" Airline
-let g:airline_theme='solarized'
-let g:airline_extensions = ['tabline']
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '| '
-let g:airline#extensions#tabline#buffer_min_count =2 " Show tabline if there are more than 1 buffer opened
-let g:airline#extensions#tabline#formatter = 'unique_tail' " Show file name only in tabline
-
 " IndentLine
 let g:indentLine_char = '▏'
-let g:indentLine_enabled = 0 " Disable by defult
-map <F4> :IndentLinesToggle<CR>
+
+" Emmet
+let g:user_emmet_leader_key='<C-e>'
 
 " Ale
 let g:ale_c_gcc_options="-Wall -ansi"
@@ -112,8 +90,8 @@ let g:ale_sign_column_always = 1 " Always show gutter
 " let g:ale_lint_on_text_changed = 'never' " Don't auto lint, lint on save instead
 let g:ale_lint_on_enter = 0
 let g:ale_linters = {
-\   'c': ['gcc'],
-\}
+    \ 'c': ['gcc'],
+    \ }
 let g:ale_linters_explicit = 1 " Only run linters named in ale_linters setting
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
@@ -124,12 +102,15 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 """""""""""""
 
 set background=dark
-colorscheme solarized
+colorscheme flattened_dark
 set cursorline
 
 """""""""""""""
 """ GENERAL
 """""""""""""""
+
+" Don't wrap text
+set nowrap
 
 " Make vim save swapfiles, backups, and undofiles in .vim
 " set swapfile
@@ -143,21 +124,14 @@ set nobackup
 set noswapfile
 
 " Show line number
-set number
-set relativenumber
-
-" Show row and column ruler information
-set ruler
-
-" Fix default backspace behavior
-set backspace=indent,eol,start
+" set number
+" set relativenumber
 
 " Tab and indent
 set autoindent
-set expandtab
-set smarttab
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=4 " The number of space characters that will be inserted when performing >> or <<
+set softtabstop=4 " The number of space characters that will be inserted when the tab key is pressed,
+set expandtab " Insert space characters whenever the tab key is pressed
 
 " Use /g flag on :s substitutions by default
 set gdefault
@@ -166,13 +140,9 @@ set gdefault
 set hlsearch
 set ignorecase
 set smartcase
-set incsearch " Searches for strings as you type
 
 " Highlight matching brace
 set showmatch
-
-" Keep n lines off the edges of the screen when scrolling
-set scrolloff=4
 
 " Reverse the split behavior
 set splitbelow
@@ -180,9 +150,6 @@ set splitright
 
 " Allow vim to hide modified buffers without abandoning them
 set hidden
-
-" Add a bit extra margin to the left beside line number
-set foldcolumn=1
 
 " Don't redraw while executing macros (performance config)
 set lazyredraw
@@ -192,15 +159,6 @@ set list listchars=tab:»·,trail:·,nbsp:·
 
 " Change vim split to full block
 " set fillchars+=vert:█
-
-"""""""""""""
-""" STATUS
-"""""""""""""
-
-" Show status bar
-set laststatus=2 " Always show
-set noshowmode " Show -- INSERT --, -- VISUAL BLOCK --, etc
-set showcmd
 
 """""""""""
 """ MAP
@@ -213,7 +171,6 @@ set showcmd
 " Function keys
 set pastetoggle=<F2>
 map <F3> :setlocal spell! spelllang=en_us<CR>
-" <F4> is already used to toggle IndentLine plugin
 
 " Disable keys
 noremap Q <nop>
@@ -250,7 +207,7 @@ set foldtext=MyFoldText()
 
 " Enable project specific .vimrc file
 set exrc
-" Add these into those project's .vimrc file
+" Then, add these into those project's .vimrc file
 " au bufWinLeave file_name mkview
 " au bufWinEnter file_name silent loadview
 

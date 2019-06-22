@@ -9,7 +9,7 @@
 [![forthebadge](https://forthebadge.com/images/badges/no-ragrets.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/powered-by-electricity.svg)](https://forthebadge.com)
 
-<p>This is my Linux setup. Every folder except "windows" is managed using GNU Stow.</p>
+<p>This is my Linux setup. Every folder is managed using GNU Stow.</p>
 </div>
 
 ---

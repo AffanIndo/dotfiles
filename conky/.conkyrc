@@ -1,6 +1,0 @@
-# This .conkyrc doesn't work, it is just a demonstration of .conky_cmus
-
-${font Goudy Bookletter 1911:style=Bold}MUSIC${font} ${hr 2}
-${if_running cmus}
-${execi 2 /home/affan/.conky_cmus}
-$endif
