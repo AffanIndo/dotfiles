@@ -18,7 +18,7 @@
 """"""""""""""
 
 " Set leader before loading all plugins
-let mapleader=","
+let mapleader = ","
 
 " General leader map
 nnoremap <leader>q :q<cr>
@@ -40,13 +40,17 @@ endif
 
 " Install plugins, use :PlugInstall, :PlugUpdate, :PlugClean, :PlugUpgrade, or :PlugStatus
 call plug#begin('~/.vim/plugged')
+" Color Scheme
 Plug 'romainl/flattened'
+" General
 Plug 'tmsvg/pear-tree'
 Plug 'lifepillar/vim-mucomplete'
 Plug 'tpope/vim-surround'
+Plug 'ap/vim-buftabline'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Yggdroot/indentLine', { 'for': 'html' }
+" Language-Specific
 Plug 'junegunn/goyo.vim'
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
 Plug 'ap/vim-css-color', { 'for': 'css' }
@@ -58,16 +62,23 @@ let g:pear_tree_repeatable_expand = 0
 
 " MUcomplete
 set completeopt+=menuone
-let g:mucomplete#chains = {
-    \ 'default' : ['path', 'keyn'],
-    \ 'vim'     : ['path', 'cmd', 'keyn']
-    \ }
+let g:mucomplete#chains = {} " Declare empty variable to override the default
+let g:mucomplete#chains.default = ['path', 'keyn']
+
+" Buftabline
+let g:buftabline_show = 1 " Show if there are at least two buffers
+augroup BuftablineColor
+    autocmd ColorScheme * highlight BufTabLineFill cterm=NONE ctermfg=12 ctermbg=0
+                      \ | highlight BufTabLineHidden cterm=NONE ctermfg=12 ctermbg=0
+                      \ | highlight BufTabLineActive cterm=NONE ctermfg=12 ctermbg=0
+                      \ | highlight BufTabLineCurrent cterm=reverse ctermfg=10 ctermbg=7
+augroup END
 
 " NerdCommenter
-let NERDSpaceDelims=1
+let NERDSpaceDelims = 1
 
 " NerdTree
-let NERDTreeShowHidden=1
+let NERDTreeShowHidden = 1
 let NERDTreeIgnore = ['.pyc$', 'node_modules', '\.git']
 let NERDTreeQuitOnOpen = 1
 let NERDTreeMinimalUI = 1
@@ -81,12 +92,12 @@ nnoremap <leader>f :NERDTreeToggle<cr>
 let g:indentLine_char = '▏'
 
 " Emmet
-let g:user_emmet_leader_key='<C-e>'
+let g:user_emmet_leader_key = '<C-e>'
 
 " Ale
-let g:ale_c_gcc_options="-Wall -ansi"
-let g:ale_lint_delay = 500
+let g:ale_c_gcc_options = "-Wall -ansi"
 let g:ale_sign_column_always = 1 " Always show gutter
+let g:ale_lint_delay = 500
 " let g:ale_lint_on_text_changed = 'never' " Don't auto lint, lint on save instead
 let g:ale_lint_on_enter = 0
 let g:ale_linters = {
@@ -140,6 +151,7 @@ set gdefault
 set hlsearch
 set ignorecase
 set smartcase
+set incsearch
 
 " Highlight matching brace
 set showmatch
@@ -156,6 +168,9 @@ set lazyredraw
 
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
+
+" Keep n lines off the edges of the screen when scrolling
+set scrolloff=5
 
 " Change vim split to full block
 " set fillchars+=vert:█
@@ -219,4 +234,3 @@ augroup MarkdownConfiguration
     autocmd BufNewFile,BufRead *.md nnoremap j gj
     autocmd BufNewFile,BufRead *.md nnoremap k gk
 augroup END
-

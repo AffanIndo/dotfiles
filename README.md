@@ -22,5 +22,8 @@
 * Run command `stow <folder>`
 * Watch as stow create symlink to your dotfiles.
 
+## Misc
+* To swap caps lock and esc, run `setxkbmap -option caps:swapescape` on startup.
+
 **NOTE: THIS README IS NOT A TUTORIAL HOW TO USE GNU STOW. FOR BEST PRACTICE, SEEK OTHER TUTORIAL. THIS README IS JUST A REMINDER FOR MYSELF.**
 
