@@ -99,7 +99,7 @@ let g:ale_c_gcc_options = "-Wall -ansi"
 let g:ale_sign_column_always = 1 " Always show gutter
 let g:ale_lint_delay = 500
 " let g:ale_lint_on_text_changed = 'never' " Don't auto lint, lint on save instead
-let g:ale_lint_on_enter = 0
+let g:ale_lint_on_enter = 1
 let g:ale_linters = {
     \ 'c': ['gcc'],
     \ }
