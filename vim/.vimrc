@@ -21,11 +21,10 @@
 let mapleader = ","
 
 " General leader map
-nnoremap <leader>q :q<cr>
 nnoremap <leader>v <C-w>v<C-w>l " Split, then move to the split
 nnoremap <leader>n :bnext<cr> " Next buffer
 nnoremap <leader>p :bprev<cr> " Previous buffer
-noremap <leader><space> :nohlsearch<cr> " Clear search highlight
+noremap <leader>/ :nohlsearch<cr> " Clear search highlight
 
 """""""""""""""
 """" PLUGIN
@@ -45,12 +44,13 @@ Plug 'romainl/flattened'
 " General
 Plug 'tmsvg/pear-tree'
 Plug 'lifepillar/vim-mucomplete'
-Plug 'tpope/vim-surround'
 Plug 'ap/vim-buftabline'
+Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Yggdroot/indentLine', { 'for': 'html' }
-" Language-Specific
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Language-specific
 Plug 'junegunn/goyo.vim'
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
 Plug 'ap/vim-css-color', { 'for': 'css' }
@@ -64,10 +64,11 @@ let g:pear_tree_repeatable_expand = 0
 set completeopt+=menuone
 let g:mucomplete#chains = {} " Declare empty variable to override the default
 let g:mucomplete#chains.default = ['path', 'keyn']
+let g:mucomplete#popup_direction = { 'keyn' : -1 } " Reverse completion direction
 
 " Buftabline
 let g:buftabline_show = 1 " Show if there are at least two buffers
-augroup BuftablineColor
+augroup BuftablineColor " Remove underline when using flattened colorscheme
     autocmd ColorScheme * highlight BufTabLineFill cterm=NONE ctermfg=12 ctermbg=0
                       \ | highlight BufTabLineHidden cterm=NONE ctermfg=12 ctermbg=0
                       \ | highlight BufTabLineActive cterm=NONE ctermfg=12 ctermbg=0
@@ -94,19 +95,30 @@ let g:indentLine_char = '▏'
 " Emmet
 let g:user_emmet_leader_key = '<C-e>'
 
+" Fzf
+nnoremap <C-p> :FZF<cr>
+
 " Ale
-let g:ale_c_gcc_options = "-Wall -ansi"
-let g:ale_sign_column_always = 1 " Always show gutter
-let g:ale_lint_delay = 500
-" let g:ale_lint_on_text_changed = 'never' " Don't auto lint, lint on save instead
-let g:ale_lint_on_enter = 1
+" Map
+nmap <silent> [W <Plug>(ale_first)
+nmap <silent> [w <Plug>(ale_previous)
+nmap <silent> ]w <Plug>(ale_next)
+nmap <silent> ]W <Plug>(ale_last)
+" Linters
 let g:ale_linters = {
     \ 'c': ['gcc'],
     \ }
 let g:ale_linters_explicit = 1 " Only run linters named in ale_linters setting
+" General
+let g:ale_sign_column_always = 1 " Always show gutter
+let g:ale_lint_delay = 500
+let g:ale_lint_on_enter = 1
+" Style
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+" Language-specific
+let g:ale_c_gcc_options = "-Wall -ansi"
 
 """""""""""""
 """ COLOR
@@ -144,6 +156,9 @@ set shiftwidth=4 " The number of space characters that will be inserted when per
 set softtabstop=4 " The number of space characters that will be inserted when the tab key is pressed,
 set expandtab " Insert space characters whenever the tab key is pressed
 
+" Status
+set laststatus=2
+
 " Use /g flag on :s substitutions by default
 set gdefault
 
@@ -152,8 +167,6 @@ set hlsearch
 set ignorecase
 set smartcase
 set incsearch
-
-" Highlight matching brace
 set showmatch
 
 " Reverse the split behavior
@@ -234,3 +247,4 @@ augroup MarkdownConfiguration
     autocmd BufNewFile,BufRead *.md nnoremap j gj
     autocmd BufNewFile,BufRead *.md nnoremap k gk
 augroup END
+
