@@ -185,9 +185,6 @@ set list listchars=tab:»·,trail:·,nbsp:·
 " Keep n lines off the edges of the screen when scrolling
 set scrolloff=5
 
-" Change vim split to full block
-" set fillchars+=vert:█
-
 """""""""""
 """ MAP
 """""""""""
@@ -221,23 +218,18 @@ set viminfo+=n~/.vim/.viminfo
 set nostartofline
 
 " Folding style
-highlight Folded cterm=bold " no underline
+highlight Folded cterm=bold
 function! MyFoldText()
-    let line = getline(v:foldstart)
-    let nucolwidth = &fdc + &number * &numberwidth
-    let windowwidth = winwidth(0) - nucolwidth - 5 " Change this number into flair character length
-    let foldedlinecount = v:foldend - v:foldstart
-    let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
-        let fillcharcount = windowwidth - strdisplaywidth(line) - len(foldedlinecount)
-    return line . ' ---' . repeat(" ",fillcharcount) . foldedlinecount . '' . ' '
+  let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
+  let lines_count = v:foldend - v:foldstart + 1
+  let lines_count_text = '| ' . printf("%10s", lines_count . ' lines') . ' |'
+  let foldchar = matchstr(&fillchars, 'fold:\zs.')
+  let foldtextstart = strpart('+' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
+  let foldtextend = lines_count_text . repeat(foldchar, 8)
+  let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
+  return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
 endfunction
 set foldtext=MyFoldText()
-
-" Enable project specific .vimrc file
-set exrc
-" Then, add these into those project's .vimrc file
-" au bufWinLeave file_name mkview
-" au bufWinEnter file_name silent loadview
 
 " Markdown configuration
 augroup MarkdownConfiguration

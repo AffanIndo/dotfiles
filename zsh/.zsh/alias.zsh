@@ -5,12 +5,6 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 
-# Fast cd
-alias cdblog='cd ~/Programming/git/AffanIndo.github.io/_posts'
-alias cddot='cd ~/dotfiles'
-alias cdgit='cd ~/Programming/git'
-alias cdw='cd /run/media/Affan'
-
 # Git stuff
 alias ga='git add'
 alias gc='git commit'
