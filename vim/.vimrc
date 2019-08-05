@@ -87,7 +87,7 @@ let NERDTreeBookmarksFile = $HOME.'/.vim/.NERDTreeBookmarks'
 let NERDTreeMapUpdir = 'h'
 let NERDTreeMapChangeRoot = 'l'
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif " Close vim if there is only nerdtree
-nnoremap <leader>f :NERDTreeToggle<cr>
+nnoremap <C-f> :NERDTreeToggle<cr>
 
 " IndentLine
 let g:indentLine_char = '▏'
