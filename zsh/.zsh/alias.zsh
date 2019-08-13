@@ -19,15 +19,14 @@ alias gu='git unstage'
 alias gco='git checkout'
 alias gb='git branch'
 
-# Apps shorthand
-alias yd='youtube-dl'
-alias py='python3'
-alias server='python3 -m http.server' # Python simple server `$ server 9999`
+# Shorthand
 alias h='history 1' # In zsh `history` lists only 15 most recent history entries, use `history 1` instead
 alias hg='history 1 | grep'
-
-# Misc
 alias ls='ls -hF --color=auto'
 alias lss='du -sh ./* | sort -h' # Directories sorted by size
 alias tm='~/.zsh/start-tmux.sh'
+alias yd='youtube-dl'
+alias py='python3'
+alias server='python3 -m http.server' # Python simple server `$ server 9999`
+alias ffres='ffprobe -v error -select_streams v:0 -show_entries stream=height,width -of csv=s=x:p=0' # Show video resolution
 

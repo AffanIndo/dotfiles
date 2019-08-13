@@ -24,7 +24,7 @@
 
 ## Misc
 * To swap caps lock and esc, run `setxkbmap -option caps:swapescape` on startup.
-* For Rofi, launch `rofi -modi "drun" -show drun -display-drun "launch" -show-icons -icon-theme Papirus-Maia -theme solarized -kb-cancel "Escape,Control+g,Control+bracketleft,Control+c" -kb-accept-entry "Control+m,Return,KP_Enter" -kb-row-down "Down,Control+n,Control+j" -kb-remove-to-eol "" -kb-row-up "Up,Control+p,ISO_Left_Tab,Control+k"`.
+* For Rofi, launch `rofi -modi "drun" -show drun -display-drun "launch" -show-icons -icon-theme Papirus-Maia -theme solarized -kb-cancel "Escape,Control+g,Control+bracketleft,Control+c" -kb-accept-entry "Control+m,Return,KP_Enter" -kb-row-down "Down,Control+n,Control+j" -kb-remove-to-eol "" -kb-row-up "Up,Control+p,ISO_Left_Tab,Control+k"`
 
 **NOTE: THIS README IS NOT A TUTORIAL HOW TO USE GNU STOW. FOR BEST PRACTICE, SEEK OTHER TUTORIAL. THIS README IS JUST A REMINDER FOR MYSELF.**
 
