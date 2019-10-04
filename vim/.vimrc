@@ -50,7 +50,7 @@ Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Yggdroot/indentLine', { 'for': 'html' }
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Require fd as well
 " Language-specific
 Plug 'junegunn/goyo.vim'
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
@@ -125,9 +125,9 @@ let g:ale_c_gcc_options = "-Wall -ansi"
 """ COLOR
 """""""""""""
 
-set background=dark
-colorscheme flattened_dark
-set cursorline
+" set background=dark
+" colorscheme flattened_dark
+" set cursorline
 
 """""""""""""""
 """ GENERAL
@@ -135,17 +135,6 @@ set cursorline
 
 " Don't wrap text
 set nowrap
-
-" Make vim save swapfiles, backups, and undofiles in .vim
-" set swapfile
-" set backup
-" set undofile
-" set directory=~/.vim/tmp//,.
-" set backupdir=~/.vim/tmp//,.
-" set undodir=~/.vim/tmp//,.
-" Use this config if you don't want swapfiles and backups, at all
-set nobackup
-set noswapfile
 
 " Show line number
 " set number
@@ -214,6 +203,20 @@ nnoremap <C-l> <C-w>l
 
 " Change .viminfo location
 set viminfo+=n~/.vim/.viminfo
+
+" Make vim save swapfiles, backups, and undofiles in .vim
+" set swapfile
+" set backup
+" set undofile
+" set directory=~/.vim/tmp//,.
+" set backupdir=~/.vim/tmp//,.
+" set undodir=~/.vim/tmp//,.
+" Use this config if you don't want swapfiles and backups, at all
+set nobackup
+set noswapfile
+
+" Disable .netrwhist
+let g:netrw_dirhistmax = 0
 
 " Keep the same column when doing G motion
 set nostartofline

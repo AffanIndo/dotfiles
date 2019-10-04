@@ -4,6 +4,7 @@
 session="default"
 
 # Create a new detached tmux session
+cd /mnt/d # WSL Only
 tmux new-session -d -s $session -n ranger
 
 # Run ranger on window 1
@@ -13,7 +14,8 @@ tmux send-keys "ranger" C-m
 tmux new-window -t $session:2 -n TODO
 
 # Run vim on window 2
-tmux send-keys "vim ~/TODO" C-m
+tmux send-keys "vim /mnt/d/TODO" C-m # WSL only
+# tmux send-keys "vim ~/TODO" C-m # Linux only
 
 # Return to main ranger window
 tmux select-window -t $session:1

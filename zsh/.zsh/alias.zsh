@@ -9,6 +9,8 @@ alias ......='cd ../../../../..'
 alias ga='git add'
 alias gc='git commit'
 alias gcm='git commit -m'
+alias gl='git log'
+alias glo='git log --oneline'
 alias gs='git status'
 alias gd='git diff'
 alias gf='git fetch'
@@ -19,7 +21,7 @@ alias gu='git unstage'
 alias gco='git checkout'
 alias gb='git branch'
 
-# Shorthand
+# General
 alias h='history 1' # In zsh `history` lists only 15 most recent history entries, use `history 1` instead
 alias hg='history 1 | grep'
 alias ls='ls -hF --color=auto'
@@ -29,4 +31,4 @@ alias yd='youtube-dl'
 alias py='python3'
 alias server='python3 -m http.server' # Python simple server `$ server 9999`
 alias ffres='ffprobe -v error -select_streams v:0 -show_entries stream=height,width -of csv=s=x:p=0' # Show video resolution
-
+alias d='cd /mnt/d' # WSL only
