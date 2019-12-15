@@ -218,8 +218,11 @@ set noswapfile
 " Disable .netrwhist
 let g:netrw_dirhistmax = 0
 
-" Keep the same column when doing G motion
+" Stay in the same column when doing G motion
 set nostartofline
+
+" Don't increment in octal notation
+set nrformats-=octal
 
 " Folding style
 highlight Folded cterm=bold
