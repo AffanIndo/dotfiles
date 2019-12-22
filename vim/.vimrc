@@ -42,6 +42,7 @@ call plug#begin('~/.vim/plugged')
 " Color Scheme
 Plug 'romainl/flattened'
 Plug 'AffanIndo/vim-todo-color'
+Plug 'w0ng/vim-hybrid'
 " General
 Plug 'tmsvg/pear-tree'
 Plug 'lifepillar/vim-mucomplete'
@@ -50,7 +51,7 @@ Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Yggdroot/indentLine', { 'for': 'html' }
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Require fd as well
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Language-specific
 Plug 'junegunn/goyo.vim'
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
@@ -69,12 +70,6 @@ let g:mucomplete#popup_direction = { 'keyn' : -1 } " Reverse completion directio
 
 " Buftabline
 let g:buftabline_show = 1 " Show if there are at least two buffers
-augroup BuftablineColor " Remove underline when using flattened colorscheme
-    autocmd ColorScheme * highlight BufTabLineFill cterm=NONE ctermfg=12 ctermbg=0
-                      \ | highlight BufTabLineHidden cterm=NONE ctermfg=12 ctermbg=0
-                      \ | highlight BufTabLineActive cterm=NONE ctermfg=12 ctermbg=0
-                      \ | highlight BufTabLineCurrent cterm=reverse ctermfg=10 ctermbg=7
-augroup END
 
 " NerdCommenter
 let NERDSpaceDelims = 1
@@ -125,9 +120,9 @@ let g:ale_c_gcc_options = "-Wall -ansi"
 """ COLOR
 """""""""""""
 
-" set background=dark
-" colorscheme flattened_dark
-" set cursorline
+set background=dark
+colorscheme hybrid
+set cursorline
 
 """""""""""""""
 """ GENERAL
