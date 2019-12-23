@@ -46,12 +46,13 @@ Plug 'w0ng/vim-hybrid'
 " General
 Plug 'tmsvg/pear-tree'
 Plug 'lifepillar/vim-mucomplete'
-Plug 'ap/vim-buftabline'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Yggdroot/indentLine', { 'for': 'html' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 " Language-specific
 Plug 'junegunn/goyo.vim'
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
@@ -67,9 +68,6 @@ set completeopt+=menuone
 let g:mucomplete#chains = {} " Declare empty variable to override the default
 let g:mucomplete#chains.default = ['path', 'keyn']
 let g:mucomplete#popup_direction = { 'keyn' : -1 } " Reverse completion direction
-
-" Buftabline
-let g:buftabline_show = 1 " Show if there are at least two buffers
 
 " NerdCommenter
 let NERDSpaceDelims = 1
@@ -87,6 +85,14 @@ nnoremap <C-f> :NERDTreeToggle<cr>
 
 " IndentLine
 let g:indentLine_char = '▏'
+
+" Airline
+let g:airline_theme='hybrid'
+let g:airline_extensions = ['tabline']
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_min_count =2 " Show tabline if there are more than 1 buffer opened
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
 " Emmet
 let g:user_emmet_leader_key = '<C-e>'
@@ -132,8 +138,8 @@ set cursorline
 set nowrap
 
 " Show line number
-" set number
-" set relativenumber
+set number
+set relativenumber
 
 " Tab and indent
 set autoindent
@@ -181,6 +187,7 @@ set scrolloff=5
 " Function keys
 set pastetoggle=<F2>
 map <F3> :setlocal spell! spelllang=en_us<CR>
+map <F5> :!clear; gcc % && ./a.out; read -k 1 "?"<CR>
 
 " Disable keys
 noremap Q <nop>
