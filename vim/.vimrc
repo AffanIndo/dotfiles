@@ -128,7 +128,7 @@ let g:ale_c_gcc_options = "-Wall -ansi"
 
 set background=dark
 colorscheme hybrid
-set cursorline
+" set cursorline
 
 """""""""""""""
 """ GENERAL
@@ -138,8 +138,8 @@ set cursorline
 set nowrap
 
 " Show line number
-set number
-set relativenumber
+set nonumber
+set norelativenumber
 
 " Tab and indent
 set autoindent
