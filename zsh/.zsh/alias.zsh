@@ -28,7 +28,8 @@ alias ls='ls -hF --color=auto'
 alias lss='du -sh ./* | sort -h' # Directories sorted by size
 alias tm='~/.zsh/start-tmux.sh'
 alias yd='youtube-dl'
-alias ydb="youtube-dl -f 'bestvideo[height<=1080]+bestaudio'"
+alias yd1="youtube-dl -f 'bestvideo[height<=1080]+bestaudio'"
+alias yd2="youtube-dl -f 'bestvideo[height<=720]+bestaudio'"
 alias py='python3'
 alias server='python3 -m http.server' # Python simple server `$ server 9999`
 alias ffres='ffprobe -v error -select_streams v:0 -show_entries stream=height,width -of csv=s=x:p=0' # Show video resolution
