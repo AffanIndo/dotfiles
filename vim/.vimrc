@@ -24,7 +24,9 @@ let mapleader = ","
 nnoremap <leader>v <C-w>v<C-w>l " Split, then move to the split
 nnoremap <leader>n :bnext<cr> " Next buffer
 nnoremap <leader>p :bprev<cr> " Previous buffer
-noremap <leader>/ :nohlsearch<cr> " Clear search highlight
+nnoremap <leader>w :w<cr>
+nnoremap <leader>q :q<cr>
+noremap <leader><leader> :nohlsearch<cr> " Clear search highlight
 
 """""""""""""""
 """" PLUGIN
@@ -47,7 +49,7 @@ Plug 'w0ng/vim-hybrid'
 Plug 'tmsvg/pear-tree'
 Plug 'lifepillar/vim-mucomplete'
 Plug 'tpope/vim-surround'
-Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-commentary'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Yggdroot/indentLine', { 'for': 'html' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -55,9 +57,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Language-specific
 Plug 'junegunn/goyo.vim'
-Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
-Plug 'ap/vim-css-color', { 'for': 'css' }
-Plug 'w0rp/ale', { 'for': 'c' }
+Plug 'mattn/emmet-vim', { 'for': ['html', 'css', 'php'] }
+Plug 'ap/vim-css-color', { 'for': ['html', 'css', 'php'] }
 call plug#end()
 
 " Pear Tree
@@ -68,9 +69,6 @@ set completeopt+=menuone
 let g:mucomplete#chains = {} " Declare empty variable to override the default
 let g:mucomplete#chains.default = ['path', 'keyn']
 let g:mucomplete#popup_direction = { 'keyn' : -1 } " Reverse completion direction
-
-" NerdCommenter
-let NERDSpaceDelims = 1
 
 " NerdTree
 let NERDTreeShowHidden = 1
@@ -100,27 +98,8 @@ let g:user_emmet_leader_key = '<C-e>'
 " Fzf
 nnoremap <C-p> :FZF<cr>
 
-" Ale
-" Map
-nmap <silent> [W <Plug>(ale_first)
-nmap <silent> [w <Plug>(ale_previous)
-nmap <silent> ]w <Plug>(ale_next)
-nmap <silent> ]W <Plug>(ale_last)
-" Linters
-let g:ale_linters = {
-    \ 'c': ['gcc'],
-    \ }
-let g:ale_linters_explicit = 1 " Only run linters named in ale_linters setting
-" General
-let g:ale_sign_column_always = 1 " Always show gutter
-let g:ale_lint_delay = 500
-let g:ale_lint_on_enter = 1
-" Style
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-" Language-specific
-let g:ale_c_gcc_options = "-Wall -ansi"
+" Goyo
+nnoremap <leader>g :Goyo<cr>
 
 """""""""""""
 """ COLOR
@@ -188,7 +167,6 @@ set scrolloff=5
 " Function keys
 set pastetoggle=<F2>
 map <F3> :setlocal spell! spelllang=en_us<CR>
-map <F5> :!clear; gcc % && ./a.out; read -k 1 "?"<CR>
 
 " Disable keys
 noremap Q <nop>
