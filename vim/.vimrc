@@ -178,6 +178,9 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" Spacebar to save
+nnoremap <space> :w<CR> 
+
 """"""""""""
 """ MISC
 """"""""""""

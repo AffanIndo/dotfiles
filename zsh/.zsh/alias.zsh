@@ -33,4 +33,5 @@ alias yd720="youtube-dl -f 'bestvideo[height<=720]+bestaudio'"
 alias py='python3'
 alias server='python3 -m http.server' # Python simple server `$ server 9999`
 alias ffres='ffprobe -v error -select_streams v:0 -show_entries stream=height,width -of csv=s=x:p=0' # Show video resolution
+alias htb='unzip -P hackthebox'
 

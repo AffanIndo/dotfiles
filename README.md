@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://affanindo.github.io/img/xfce/xfce-busy.png" />
+<img src="https://affanindo.github.io/img/xfce/xfce-busy.png">
 
 <br />
 <br />
